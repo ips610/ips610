@@ -1,11 +1,14 @@
 # Hey There👋, I'm Ishpuneet Singh
-
-<p align="center"> <img src="https://komarev.com/ghpvc/?username=ips610&label=Profile%20views&color=0e75b6&style=flat" alt="ips610" height=30px/> </p>
-
-<p align="center"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=ips610" alt="ips610" /></a> </p>
+<br>
+<p align="center"> <img src="https://komarev.com/ghpvc/?username=ips610&label=Profile%20views&color=0e75b6&style=flat" alt="ips610" height=30px/> <br><br> </p>
 
 
-<h1>About Me: </h1>
+[![Ishpuneet's GitHub stats](https://github-readme-stats.vercel.app/api?username=ips610&count_private=true&include_all_commits=true&theme=radical)](https://github.com/ips610)
+
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=ips610&theme=nightowl)
+
+
+<h1>About Me: <br></h1>
 <h4>
 🧑‍💻 Passionate Computer Science student and dedicated tech enthusiast.<br>
 🔥 Fueled by a deep love for technology, constantly seeking to explore new concepts and sharpen skills.<br>
