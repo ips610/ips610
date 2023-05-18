@@ -2,12 +2,12 @@
 <p align="center"> <img src="https://komarev.com/ghpvc/?username=ips610&label=Profile%20views&color=0e75b6&style=flat" alt="ips610" height=25px/>  <br></p>
 
 ```
-                                         _____________________________________
-                                         < Welcome to my personal github page! >
-                                         ------------------------------------- 
-                                                   /\_/\
-                                                  ( o.o ) Meow! Meow! 🐱
-                                                   > ^ <
+                                    _____________________________________
+                                    < Welcome to my personal github page! >
+                                    ------------------------------------- 
+                                              /\_/\
+                                             ( o.o ) Meow! Meow! 🐱
+                                              > ^ <
    
 ```
  
