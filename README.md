@@ -12,7 +12,7 @@
 ```
  
 
-<h1>About Me: <br></h1>
+<h1>🚀About Me: <br></h1>
 <h4>
   <ul>
 <li>🧑‍💻 Passionate Computer Science student and dedicated tech enthusiast.<br>
