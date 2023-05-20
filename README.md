@@ -47,11 +47,57 @@
   </ul>
  </h4>
  
+ <h1>⚙️Languages & Tools: <br></h1>
+<p align="left"> 
+<a href="https://www.w3.org/html/" target="_blank"> 
+  <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" alt="html5" width="40" height="40"/> 
+</a>
+  
+<a href="https://www.w3schools.com/css/" target="_blank"> 
+  <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" alt="css3" width="40" height="40"/> 
+</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> 
+  <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" alt="javascript" width="40" height="40"/>
+</a>
+  
+<!-- <a href="https://reactjs.org/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="react js" width="40" height="40"/>
+<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/bootstrap/bootstrap.png" alt="bootstrap" width="40" height="40"/> </a> -->
+<!-- <a href="https://www.djangoproject.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-icon.svg" alt="git" width="40" height="40"/> </a>  -->
+  
+<a href="https://www.cprogramming.com/" target="_blank"> 
+  <img src="https://img.icons8.com/color/452/c-programming.png" alt="c" width="40" height="40"/> 
+</a> 
+  
+<a href="https://www.w3schools.com/cpp/" target="_blank"> 
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1200px-ISO_C%2B%2B_Logo.svg.png" alt="cplusplus" width="40" height="40"/> 
+</a>
+  
+<a href="https://www.python.org" target="_blank"> 
+  <img src="https://www.vectorlogo.zone/logos/python/python-official.svg" alt="python" width="70px"/> 
+</a>  
+  
+<!--   
+<a href="https://git-scm.com/" target="_blank"> 
+  <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> 
+</a> 
+   -->
+  
+<a href="https://github.com/ips610" target="_blank"> 
+  <img src="https://raw.githubusercontent.com/github/explore/78df643247d429f6cc873026c0622819ad797942/topics/github/github.png" alt="github" width="40" height="40"> 
+</a>
+<a href="https://www.mysql.com/" target="_blank"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> 
+</a> 
+
+
+<br />
+<br />
+ 
  <h1>📫Contact Me: <br></h1>
  
  ```
 
-     (   (
+     (   ( 
     )   )
    _______
   |       |
