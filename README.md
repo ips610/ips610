@@ -12,7 +12,7 @@
 ```
  
 
-<h1>🚀About Me: <br></h1>
+<h1>🚀 About Me <br></h1>
 
 <h4>
   <ul>
@@ -38,7 +38,7 @@
   <img align="right" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=500&langs_count=8" />
 </a> -->
 
-<h1>🌱My Current Goals: <br></h1>
+<h1>🌱 My Current Goals <br></h1>
 
 <h4>
   <ul>
@@ -47,7 +47,7 @@
   </ul>
  </h4>
  
- <h1>⚙️Languages & Tools: <br></h1>
+ <h1>⚙️ Languages & Tools <br></h1>
 <p align="left"> 
 <a href="https://www.w3.org/html/" target="_blank"> 
   <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" alt="html5" width="40" height="40"/> 
@@ -93,7 +93,7 @@
 <br />
 <br />
  
- <h1>📫Contact Me: <br></h1>
+ <h1>📫 Contact Me: <br></h1>
  
  ```
 
@@ -107,3 +107,10 @@
 
   
 ```
+<h1>🤝 Let's Connect <br></h1>
+
+<h4>
+I'm always looking forward to connecting with fellow tech enthusiasts, students, and professionals. Let's learn and grow together! Follow me on GitHub and let's collaborate on exciting projects.
+
+Thank you for visiting my GitHub profile! Feel free to explore my repositories and don't forget to leave a ⭐️ if you find something interesting. Happy coding! 😊
+</h4>
