@@ -93,7 +93,7 @@
 <br />
 <br />
  
- <h1>📫 Contact Me: <br></h1>
+ <h1>📫 Contact Me <br></h1>
  
  ```
 
