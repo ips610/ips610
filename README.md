@@ -108,7 +108,8 @@
   
 ```
 
-<a href="https://linkedin.com/in/ips610" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Ishpuneet Singh" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/ips610" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Ishpuneet Singh" height="30" width="40" /></a> 
+<a href="https://instagram.com/ips610" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="Ishpuneet Singh" height="30" width="40" /></a>
 <h1>🤝 Let's Connect <br></h1>
 
 <h4>
