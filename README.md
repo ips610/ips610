@@ -74,6 +74,9 @@
   <a href="https://www.solidworks.com" target="_blank"> 
   <img src="https://icon-library.com/images/solidworks-icon/solidworks-icon-24.jpg" alt="SolidWorks" width="50" height="50"> 
 </a>
+   <a href="https://www.canva.com" target="_blank"> 
+  <img src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/canva-icon.png" alt="Canva" width="40" height="40"> 
+</a>
   
   
 
