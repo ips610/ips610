@@ -68,6 +68,10 @@
 <a href="https://developer.android.com/studio?gclid=Cj0KCQjwyLGjBhDKARIsAFRNgW-t-MBHzyfpt5ATB2OgJg3MqrvEJ2DVqbXFeU3HmGnxAd-64Xcv_UIaAuhiEALw_wcB&gclsrc=aw.ds" target="_blank"> 
   <img src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/android-studio-icon.svg" alt="android studio" width="40" height="40"> 
 </a>
+  <a href="https://www.autodesk.in/products/autocad/overview?mktvar002=5019031%7CSEM%7C11381098301%7C111085709213%7Caud-825247995550:kwd-297275808151&utm_source=GGL&utm_medium=SEM&utm_campaign=GGL_DEC_AutoCAD_APAC_IN_eComm_SEM_BR_New_EX_0000_5019031_PureBrand&utm_id=5019031&utm_term=aud-825247995550:kwd-297275808151&mkwid=s%7Cpcrid%7C591421598631%7Cpkw%7Cautocad%7Cpmt%7Ce%7Cpdv%7Cc%7Cslid%7C%7Cpgrid%7C111085709213%7Cptaid%7Caud-825247995550:kwd-297275808151%7Cpid%7C&utm_medium=cpc&utm_source=google&utm_campaign&utm_term=autocad&utm_content=s%7Cpcrid%7C591421598631%7Cpkw%7Cautocad%7Cpmt%7Ce%7Cpdv%7Cc%7Cslid%7C%7Cpgrid%7C111085709213%7Cptaid%7Caud-825247995550:kwd-297275808151%7C&gad=1&gclid=Cj0KCQjwmtGjBhDhARIsAEqfDEc4P_LYMplEFWhYFADsYTATeV8oq8d0kLnAbxFERiAUX725cBUsb-AaArZzEALw_wcB&term=1-YEAR&tab=subscription&plc=ACDIST" target="_blank"> 
+  <img src="https://play-lh.googleusercontent.com/y92LD5c5rdlNfquCy-YPNIvdnS4ISEL05wickp28OLya8WlmWQwXfAP0Yys9iTssny3K=w240-h480-rw" alt="AutoCAD" width="40" height="40"> 
+</a>
+  
 
 
 <br />
