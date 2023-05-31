@@ -89,7 +89,7 @@
   
   <ul>
     <li><b>🏆 Won First Prize in Intercity Website Development Techfest in Class X ( Duo Participation ) </li>
-    <li>🏆 Won First Prize in Intercity Website Development Techfest in Class XI ( Single Participation ) </b></li>
+    <li>🏆 Won First Prize in Intercity Website Development Techfest in Class XI ( Solo Participation ) </b></li>
   </ul>
   </p>
   <br />
