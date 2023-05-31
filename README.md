@@ -119,7 +119,7 @@
 
 <h4>
 I'm always looking forward to connecting with fellow tech enthusiasts, students, and professionals. Let's learn and grow together! Follow me on GitHub and let's collaborate on exciting projects.
-<br />
+<br /><br />
 Thank you for visiting my GitHub profile! Feel free to explore my repositories and don't forget to leave a ⭐️ if you find something interesting. Happy coding! 😊
 </h4>
 
