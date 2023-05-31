@@ -42,8 +42,8 @@
 
 <h4>
   <ul>
-    <li>🍀 Learn DSA in Summer Break <br>
-    <li>🍀 Learn Full - Stack Web Development in Summer Break <br>
+    <li>🍀 Data Structures & Algorithms <br>
+    <li>🍀 Full - Stack Web Development <br>
   </ul>
  </h4>
  
