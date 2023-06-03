@@ -28,12 +28,12 @@
 </h4>
 
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=500&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
-
-[![Ishpuneet's GitHub stats](https://github-readme-stats.vercel.app/api?username=ips610&count_private=true&include_all_commits=true&theme=transparent&hide_border=true&border_radius=5&card_width=500)](https://github.com/ips610)
 
 [![GitHub Streak](https://streak-stats.demolab.com?user=ips610&theme=transparent&hide_border=true)](https://git.io/streak-stats)
+![Ishpuneet's GitHub stats](https://github-readme-stats.vercel.app/api?username=ips610&show_icons=true&count_private=true&include_all_commits=true&theme=transparent&hide_border=true&border_radius=5&card_width=500)
 
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=1000px&layout=)](https://github.com/anuraghazra/github-readme-stats)
 
 <!-- <a href="https://github.com/anuraghazra/github-readme-stats">
   <img align="right" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=500&langs_count=8" />
