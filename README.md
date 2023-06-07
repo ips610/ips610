@@ -36,7 +36,7 @@
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=500px)](https://github.com/anuraghazra/github-readme-stats)
 
 <!-- <a href="https://github.com/anuraghazra/github-readme-stats">
-  <img align="right" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=500&langs_count=8" />
+  <img align="right" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=500&langs_count=8&include_private" />
 </a> -->
 
 <h1>🌱 What I'm Currently Learning <br></h1>
