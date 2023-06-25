@@ -4,7 +4,7 @@
 
 ```
                                     _____________________________________
-                                    < Welcome to my personal github page! >
+                                    < Welcome To My Personal GitHub Page! >
                                     ------------------------------------- 
                                               /\_/\
                                              ( o.o ) Meow! Meow! 🐱
