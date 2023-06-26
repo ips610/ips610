@@ -79,6 +79,9 @@
    <a href="https://www.canva.com" target="_blank"> 
   <img src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/canva-icon.png" alt="Canva" width="40" height="40"> 
 </a>
+<a href="https://colab.google" target="_blank"> 
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/1600px-Google_Colaboratory_SVG_Logo.svg.png?20221103151432" alt="Google Colaboratory" width="60" height="40"> 
+</a>
   
   
 <br />
