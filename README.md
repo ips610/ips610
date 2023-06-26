@@ -65,7 +65,7 @@
 </a>
   <a href="https://www.mathworks.com/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="matlab" width="40" height="40"/> </a> 
 <a href="https://github.com/ips610" target="_blank"> 
-  <img src="https://raw.githubusercontent.com/github/explore/78df643247d429f6cc873026c0622819ad797942/topics/github/github.png" alt="github" width="40" height="40"> 
+  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="github" width="40" height="40"> 
 </a>
 <a href="https://developer.android.com/studio?gclid=Cj0KCQjwyLGjBhDKARIsAFRNgW-t-MBHzyfpt5ATB2OgJg3MqrvEJ2DVqbXFeU3HmGnxAd-64Xcv_UIaAuhiEALw_wcB&gclsrc=aw.ds" target="_blank"> 
   <img src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/android-studio-icon.svg" alt="android studio" width="40" height="40"> 
