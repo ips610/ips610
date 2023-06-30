@@ -82,7 +82,9 @@
 <a href="https://colab.google" target="_blank"> 
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/1600px-Google_Colaboratory_SVG_Logo.svg.png?20221103151432" alt="Google Colaboratory" width="60" height="40"> 
 </a>
-  
+<a href="https://www.selenium.dev" target="_blank">
+<img src="https://avatars0.githubusercontent.com/u/983927?v=3&s=400" alt="Selenium" width="40" height="40"> 
+</a>
   
 <br />
 <br />
