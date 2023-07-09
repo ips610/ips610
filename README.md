@@ -14,7 +14,11 @@
  
 <br />
 <h1>🚀 About Me <br></h1>
+<br>
 
+[![ips610's GitHub | Stats](https://stats.quine.sh/ips610/github?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
+
+<br>
 <h4>
   <ul>
 <li>🧑‍💻 Passionate Computer Science student and dedicated tech enthusiast.<br>
@@ -34,6 +38,11 @@
 
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=500px)](https://github.com/anuraghazra/github-readme-stats)
+
+[![ips610's GitHub | Languages Over Time](https://stats.quine.sh/ips610/languages-over-time?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
+<br>
+<br>
+[![ips610's GitHub | Topics Over Time](https://stats.quine.sh/ips610/topics-over-time?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
 
 <!-- <a href="https://github.com/anuraghazra/github-readme-stats">
   <img align="right" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=500&langs_count=8&include_private" />
