@@ -14,11 +14,11 @@
  
 <br />
 <h1>🚀 About Me <br></h1>
-<br>
 
-[![ips610's GitHub | Stats](https://stats.quine.sh/ips610/github?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
 
-<br>
+
+
+
 <h4>
   <ul>
 <li>🧑‍💻 Passionate Computer Science student and dedicated tech enthusiast.<br>
@@ -30,8 +30,12 @@
 <li>🌟 Excited by the endless possibilities technology offers and its potential to shape the future.<br><br>
   </ul>
 </h4>
+<br>
 
+[![ips610's GitHub | Stats](https://stats.quine.sh/ips610/github?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
 
+<br>
+<br>
 
 [![GitHub Streak](https://streak-stats.demolab.com?user=ips610&theme=transparent&hide_border=true)](https://git.io/streak-stats)
 ![Ishpuneet's GitHub stats](https://github-readme-stats.vercel.app/api?username=ips610&show_icons=true&include_all_commits=true&theme=transparent&hide_border=true&border_radius=5&card_width=500)
