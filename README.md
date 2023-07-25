@@ -13,6 +13,8 @@
 ```
  
 <br />
+
+<img src="https://myreadme.vercel.app/api/embed/ips610?panels=userwelcome,userstatistics,toplanguages,commitgraph,toprepositories" alt="reimaginedreadme" width=100%/>
 <h1>🚀 About Me <br></h1>
 
 
@@ -52,7 +54,9 @@
   <img align="right" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=500&langs_count=8&include_private" />
 </a> -->
 
-<img src="https://myreadme.vercel.app/api/embed/ips610?panels=userstatistics,toprepositories,toplanguages,commitgraph" alt="reimaginedreadme" width=100%/>
+
+
+
 <h1>🌱 What I'm Currently Learning <br></h1>
 
 <h4>
