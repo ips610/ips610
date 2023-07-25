@@ -36,6 +36,8 @@
 
 [![ips610's GitHub | Stats](https://stats.quine.sh/ips610/github?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
 
+<a href="https://readme-jokes.vercel.app"><img align="center" src="https://readme-jokes.vercel.app/api" alt="README Jokes"></a>
+
 <br>
 <br>
 
