@@ -36,7 +36,7 @@
 
 [![ips610's GitHub | Stats](https://stats.quine.sh/ips610/github?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
 
-<a href="https://readme-jokes.vercel.app"><img align="center" src="https://readme-jokes.vercel.app/api" alt="README Jokes"></a>
+
 
 <br>
 <br>
@@ -147,6 +147,11 @@
 I'm always looking forward to connecting with fellow tech enthusiasts, students, and professionals. Let's learn and grow together! Follow me on GitHub and let's collaborate on exciting projects.
 <br /><br />
 Thank you for visiting my GitHub profile! Feel free to explore my repositories and don't forget to leave a ⭐️ if you find something interesting. Happy coding! 😊
+
+<br><br>
+Have A Joke:
+<br><br>
+<a href="https://readme-jokes.vercel.app"><img align="center" src="https://readme-jokes.vercel.app/api" alt="README Jokes" width=100% height=100%></a>
 </h4>
 
 
