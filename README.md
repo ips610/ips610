@@ -114,8 +114,9 @@
   
   <ul>
     <li><b>🏆 Received a Merit certificate for being placed in the Top 300 students of Punjab in PRMO in class XI. </li>
-    <li>🏆 Won First Prize in Intercity Website Development Techfest in Class X ( Duo Participation ) </li>
-    <li>🏆 Won First Prize in Intercity Website Development Techfest in Class XI ( Solo Participation ) </b></li>
+    <li>🏆 Won First Prize in Intercity Website Development Techfest in Class X ( Duo Participation ). </li>
+    <li>🏆 Won First Prize in Intercity Website Development Techfest in Class XI ( Solo Participation ). </li>
+    <li>🏆 Won Second Prize in Intra Society ( OWASP ) Hackathon and made Github Dashboard Creator. </b></li>
   </ul>
   </p>
   <br />
