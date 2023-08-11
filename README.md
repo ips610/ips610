@@ -1,7 +1,7 @@
 # Hey There👋, I'm Ishpuneet Singh
 <br />
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=500&height=100&lines=Hey!+This+is+Ishpuneet+Singh;I+am+Computer+Science+Undergraduate;Eat!+Sleep!+Code!+Repeat!)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=500&height=100&lines=Hey!+This+is+Ishpuneet+Singh;I+am+Computer+Science+Undergraduate;I+am+a+Programmer!;I+am+a+Developer!Eat!+Sleep!+Code!+Repeat!)](https://git.io/typing-svg)
 
 <br>
 <p align="center"> <img src="https://komarev.com/ghpvc/?username=ips610&label=Profile%20views&color=0e75b6&style=flat" alt="ips610" height=25px/>  <br></p>
