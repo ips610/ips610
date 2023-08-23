@@ -39,7 +39,7 @@
 <br>
 
 [![ips610's GitHub | Stats](https://stats.quine.sh/ips610/github?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
-
+[![ips610's GitHub | Dependencies](https://stats.quine.sh/ips610/dependencies?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
 
 
 <br>
@@ -55,6 +55,9 @@
 <br>
 <br>
 [![ips610's GitHub | Topics Over Time](https://stats.quine.sh/ips610/topics-over-time?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
+
+
+
 
 <!-- <a href="https://github.com/anuraghazra/github-readme-stats">
   <img align="right" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=500&langs_count=8&include_private" />
