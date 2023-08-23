@@ -51,6 +51,9 @@
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ips610&theme=transparent&hide_border=true&border_radius=5&card_width=500px)](https://github.com/anuraghazra/github-readme-stats)
 
+[![ips610's Stack Overflow | Stats](https://stats.quine.sh/ips610/stack-overflow?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
+<br>
+<br>
 [![ips610's GitHub | Languages Over Time](https://stats.quine.sh/ips610/languages-over-time?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
 <br>
 <br>
