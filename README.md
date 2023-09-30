@@ -18,10 +18,6 @@
  
 <br />
 
-[![@ips610's Holopin board](https://holopin.io/api/user/board?user=ips610)](https://holopin.io/@ips610)
-
-<br>
-
 <img src="https://myreadme.vercel.app/api/embed/ips610?panels=userwelcome,userstatistics,toplanguages,commitgraph,toprepositories" alt="reimaginedreadme" width=100%/>
 <h1>🚀 About Me <br></h1>
 
@@ -64,6 +60,9 @@
 [![ips610's GitHub | Topics Over Time](https://stats.quine.sh/ips610/topics-over-time?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=ips610)
 
 
+[![@ips610's Holopin board](https://holopin.io/api/user/board?user=ips610)](https://holopin.io/@ips610)
+
+<br>
 
 
 <!-- <a href="https://github.com/anuraghazra/github-readme-stats">
