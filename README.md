@@ -18,11 +18,11 @@
  
 <br />
 
+<!-- 
 <img src="https://myreadme.vercel.app/api/embed/ips610?panels=userwelcome,userstatistics,toplanguages,commitgraph,toprepositories" alt="reimaginedreadme" width=100%/>
+
+-->
 <h1>🚀 About Me <br></h1>
-
-
-
 
 
 <h4>
