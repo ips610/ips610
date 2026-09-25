@@ -469,6 +469,9 @@ def text_width(text, size, weight):
 def _button_icon(kind, theme):
     """A 16px icon at the origin."""
     c = THEMES[theme]
+    if kind == "eye":
+        return (f'<path d="M1 8s2.6-5 7-5 7 5 7 5-2.6 5-7 5-7-5-7-5z" fill="none" stroke="{c["muted"]}" '
+                f'stroke-width="1.4" stroke-linejoin="round"/><circle cx="8" cy="8" r="2.2" fill="{c["muted"]}"/>')
     if kind == "email":
         return (f'<rect x="1" y="3" width="14" height="10" rx="2" fill="none" stroke="{c["muted"]}" stroke-width="1.4"/>'
                 f'<path d="M1.8 4.2L8 8.8l6.2-4.6" fill="none" stroke="{c["muted"]}" stroke-width="1.4" stroke-linejoin="round"/>')
@@ -586,6 +589,17 @@ def write_tools():
                   for t, name in row]
         rows.append("".join(cells) + "<br>")
     return "\n".join(rows)
+
+
+def fetch_views():
+    """Total profile views. The README shows the counter as an invisible pixel, which
+    keeps counting visits; this reads the total once a night for the matching button."""
+    counts = re.findall(r">([\d,]+)<", fetch(f"https://komarev.com/ghpvc/?username={LOGIN}").decode())
+    return int(counts[-1].replace(",", ""))
+
+
+def views_label(n):
+    return f"{n / 1000:.1f}K profile views" if n >= 10_000 else f"{n:,} profile views"
 
 
 # ------------------------------------------------------------------ activity
@@ -780,6 +794,14 @@ def main():
         stats = summarise(*fetch_contributions())
         update_readme("activity", write_activity(stats))
         print(activity_summary(stats))
+        try:
+            views = fetch_views()
+        except (OSError, ValueError, IndexError) as e:
+            print(f"Views button not updated: {e}")
+        else:
+            for theme in THEMES:
+                (ASSETS / f"link-views-{theme}.svg").write_text(render_button(theme, views_label(views), "eye"))
+            print(views_label(views))
     else:
         sys.exit(__doc__)
 

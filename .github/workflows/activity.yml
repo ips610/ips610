@@ -31,7 +31,7 @@ jobs:
 
       - name: Commit if changed
         run: |
-          git add README.md assets/activity
+          git add README.md assets/activity assets/link-views-*.svg
           if git diff --cached --quiet; then
             echo "No change."
             exit 0

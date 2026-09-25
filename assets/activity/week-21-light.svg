@@ -8,5 +8,5 @@
 @keyframes grow{from{transform:scaleY(0)}}@keyframes glow{50%{opacity:.45}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}.motion{display:none}}
 </style>
-<rect class="bar" style="animation-delay:0.452s" x="1.5" y="37.0" width="10" height="9.0" rx="1.5"/>
+<rect class="bar" style="animation-delay:0.452s" x="1.5" y="37.1" width="10" height="8.9" rx="1.5"/>
 </svg>
