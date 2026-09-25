@@ -84,7 +84,7 @@ def _font_bytes(source, weight):
     path = FONT_CACHE / f"{source}.ttf"
     if not path.exists():
         path.write_bytes(fetch(FONT_SOURCES[source]))
-    font = TTFont(path)
+    font = TTFont(path, recalcTimestamp=False)
     if "fvar" in font:
         font = instancer.instantiateVariableFont(font, {"wght": weight, "wdth": 100})
     buf = io.BytesIO()
@@ -96,7 +96,7 @@ def _face(source, weight, text):
     from fontTools import subset
     from fontTools.ttLib import TTFont
 
-    font = TTFont(io.BytesIO(_font_bytes(source, weight)))
+    font = TTFont(io.BytesIO(_font_bytes(source, weight)), recalcTimestamp=False)
     options = subset.Options()
     options.flavor = "woff2"
     options.layout_features = ["kern", "liga"]
@@ -277,7 +277,7 @@ def shadow_stage(c):
 
 def beacon_stage(c):
     """Keyboard, mouse and network signals scroll past, like a live capture."""
-    rnd = random.Random(114)
+    rnd = random.Random(79)
     x0, period = 72, 308
     lanes = [("keys", 50, c["byte"]), ("mouse", 98, c["purple"]), ("net", 146, c["green"])]
 
@@ -423,7 +423,7 @@ WORK = [
     ("shadow", "SHADOW", ["Spotting malware from raw executable bytes",
                           "Foundation model, with Dr. Maninder Singh"], shadow_stage),
     ("beacon", "BEACON", ["Recognizing players by how they play",
-                          "445 GB open dataset from 114 players"], beacon_stage),
+                          "430 GB open dataset, 79 sessions from 28 players"], beacon_stage),
     ("medical", "Interpretable medical AI", ["Diagnoses that clinicians can check and correct",
                                              "With Prof. Tim Miller, University of Queensland"], medical_stage),
     ("thapar", "Built for Thapar", ["Exam scheduling, timetables and course feedback",
