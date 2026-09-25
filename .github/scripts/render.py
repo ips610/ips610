@@ -276,17 +276,31 @@ def render_chase(theme):
 def render_footer(theme):
     """Nap time: a sleeping cat, a panda with its bamboo, a coffee, a hopping bunny and the mouse that got away."""
     c = THEMES[theme]
+    # White and black for the panda; outlines keep the white visible on light pages
+    # and the black visible on dark ones.
+    pw, pw_line, pk, pk_line = (("#f0f6fc", "none", "#010409", "#6e7681") if theme == "dark"
+                                else ("#ffffff", "#8c959f", "#1f2328", "none"))
+
     def panda(x):
-        """Ears and eye patches in dense @ so it reads as a panda. It blinks and chews,
-        and its bamboo sways."""
-        head = ascii_art([" @@.-'''-.@@", " @/       \\@", " | @@@ @@@ |"], x, 26, "a")
-        eyes_open, eyes_shut = ascii_art([" | @o@ @o@ |"], x, 74, "a"), ascii_art([" | @-@ @-@ |"], x, 74, "a")
-        nose = ascii_art(["  \\  .v.  /"], x, 90, "a")
-        chew_a, chew_b = ascii_art(["   '-._.-'"], x, 106, "a"), ascii_art(["   '-.o.-'"], x, 106, "a")
-        leaves = ascii_art(["\\|/"], x + 116, 26, "bb")
-        return (head + f'<g class="open">{eyes_open}</g><g class="shut">{eyes_shut}</g>' + nose
-                + f'<g class="ca">{chew_a}</g><g class="cb">{chew_b}</g>'
-                + f'<g class="leaf">{leaves}</g>' + ascii_art([" |", " +", " |", " +", " |"], x + 116, 42, "bb"))
+        """A small drawn panda holding bamboo; text can't do its black-and-white patches.
+        It blinks, chews and tilts its head, and the bamboo leaves sway."""
+        return f"""<g transform="translate({x} 0)">
+<g class="leaf"><path class="bl" d="M73 16c-8-6-15-6-20-3 6 3 13 4 20 3z"/><path class="bl" d="M73 14c5-8 12-10 18-9-4 5-11 8-18 9z"/></g>
+<rect class="bs" x="70" y="12" width="6" height="98" rx="2"/>
+<path class="bn" d="M70 40h6M70 68h6M70 94h6"/>
+<ellipse class="pw" cx="40" cy="86" rx="27" ry="22"/>
+<ellipse class="pk" cx="22" cy="105" rx="9" ry="5.5"/><ellipse class="pk" cx="58" cy="105" rx="9" ry="5.5"/>
+<ellipse class="pk" cx="16" cy="84" rx="7" ry="13" transform="rotate(12 16 84)"/>
+<ellipse class="pk" cx="64" cy="76" rx="7" ry="13" transform="rotate(-30 64 76)"/>
+<g class="tilt">
+<circle class="pk" cx="17" cy="27" r="9"/><circle class="pk" cx="63" cy="27" r="9"/>
+<ellipse class="pw" cx="40" cy="45" rx="28" ry="23"/>
+<ellipse class="pk" cx="29" cy="44" rx="7" ry="9.5" transform="rotate(35 29 44)"/>
+<ellipse class="pk" cx="51" cy="44" rx="7" ry="9.5" transform="rotate(-35 51 44)"/>
+<g class="eyes"><circle class="pe" cx="30" cy="42" r="2.4"/><circle class="pe" cx="50" cy="42" r="2.4"/></g>
+<ellipse class="pn" cx="40" cy="54" rx="4" ry="2.8"/>
+<path class="pm" d="M36 59q4 3 8 0"/>
+</g></g>"""
 
     zs = "".join(f'<text class="z" x="{92 + i * 7}" y="{66 - i * 4}" style="animation-delay:{-i * 1.2}s;'
                  f'font-size:{11 + i * 2}px">{ch}</text>' for i, ch in enumerate("zzZ"))
@@ -307,11 +321,14 @@ def render_footer(theme):
 @keyframes st{{0%{{opacity:0;transform:translateY(8px)}}35%{{opacity:.9}}100%{{opacity:0;transform:translateY(-10px)}}}}
 .hop{{animation:hop .8s cubic-bezier(.3,0,.7,1) infinite}}@keyframes hop{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-12px)}}}}
 .stroll{{animation:stroll 7s ease-in-out infinite alternate}}@keyframes stroll{{to{{transform:translateX(110px)}}}}
-.bb{{font:400 14px {MONO};fill:{c["green"]};white-space:pre}}
-.open{{animation:open 6s infinite}}@keyframes open{{0%,88%{{opacity:1}}88.5%,93%{{opacity:0}}93.5%,100%{{opacity:1}}}}
-.shut{{opacity:0;animation:shut 6s infinite}}@keyframes shut{{0%,88%{{opacity:0}}88.5%,93%{{opacity:1}}93.5%,100%{{opacity:0}}}}
-.ca{{animation:fa .5s steps(1) infinite}}.cb{{opacity:0;animation:fb .5s steps(1) infinite}}
-@keyframes fa{{50%{{opacity:0}}}}@keyframes fb{{50%{{opacity:1}}}}
+.pw{{fill:{pw};stroke:{pw_line};stroke-width:1.2}}.pk{{fill:{pk};stroke:{pk_line};stroke-width:1.2}}
+.pe{{fill:{pw}}}.pn{{fill:{pk}}}.pm{{fill:none;stroke:{pk};stroke-width:1.5;stroke-linecap:round;animation:chew .45s ease-in-out infinite alternate}}
+@keyframes chew{{to{{transform:translateY(1.5px)}}}}
+.eyes{{transform-box:fill-box;transform-origin:center;animation:peep 6s infinite}}
+@keyframes peep{{0%,90%,96%,100%{{transform:scaleY(1)}}93%{{transform:scaleY(.1)}}}}
+.tilt{{transform-box:fill-box;transform-origin:50% 100%;animation:tilt 4s ease-in-out infinite alternate}}
+@keyframes tilt{{from{{transform:rotate(-4deg)}}to{{transform:rotate(4deg)}}}}
+.bs{{fill:{c["green"]}}}.bn{{stroke:{c["canvas"]};stroke-opacity:.5;stroke-width:1.5}}.bl{{fill:{c["green"]}}}
 .leaf{{transform-box:fill-box;transform-origin:50% 100%;animation:sway 2.2s ease-in-out infinite alternate}}
 @keyframes sway{{from{{transform:rotate(-8deg)}}to{{transform:rotate(8deg)}}}}
 .peek{{animation:peek 8s ease-in-out infinite}}

@@ -10,11 +10,14 @@
 @keyframes st{0%{opacity:0;transform:translateY(8px)}35%{opacity:.9}100%{opacity:0;transform:translateY(-10px)}}
 .hop{animation:hop .8s cubic-bezier(.3,0,.7,1) infinite}@keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .stroll{animation:stroll 7s ease-in-out infinite alternate}@keyframes stroll{to{transform:translateX(110px)}}
-.bb{font:400 14px Mono,ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;fill:#1a7f37;white-space:pre}
-.open{animation:open 6s infinite}@keyframes open{0%,88%{opacity:1}88.5%,93%{opacity:0}93.5%,100%{opacity:1}}
-.shut{opacity:0;animation:shut 6s infinite}@keyframes shut{0%,88%{opacity:0}88.5%,93%{opacity:1}93.5%,100%{opacity:0}}
-.ca{animation:fa .5s steps(1) infinite}.cb{opacity:0;animation:fb .5s steps(1) infinite}
-@keyframes fa{50%{opacity:0}}@keyframes fb{50%{opacity:1}}
+.pw{fill:#ffffff;stroke:#8c959f;stroke-width:1.2}.pk{fill:#1f2328;stroke:none;stroke-width:1.2}
+.pe{fill:#ffffff}.pn{fill:#1f2328}.pm{fill:none;stroke:#1f2328;stroke-width:1.5;stroke-linecap:round;animation:chew .45s ease-in-out infinite alternate}
+@keyframes chew{to{transform:translateY(1.5px)}}
+.eyes{transform-box:fill-box;transform-origin:center;animation:peep 6s infinite}
+@keyframes peep{0%,90%,96%,100%{transform:scaleY(1)}93%{transform:scaleY(.1)}}
+.tilt{transform-box:fill-box;transform-origin:50% 100%;animation:tilt 4s ease-in-out infinite alternate}
+@keyframes tilt{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+.bs{fill:#1a7f37}.bn{stroke:#ffffff;stroke-opacity:.5;stroke-width:1.5}.bl{fill:#1a7f37}
 .leaf{transform-box:fill-box;transform-origin:50% 100%;animation:sway 2.2s ease-in-out infinite alternate}
 @keyframes sway{from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
 .peek{animation:peek 8s ease-in-out infinite}
@@ -24,7 +27,23 @@
 <path d="M0 112.5H720" stroke="#d1d9e0" stroke-dasharray="2 6"/>
 <text class="a" x="24" y="74" xml:space="preserve"> /\_/\</text><text class="a" x="24" y="90" xml:space="preserve">( -.- )</text><text class="a" x="24" y="106" xml:space="preserve"> &gt; ^ &lt;</text><text class="z" x="92" y="66" style="animation-delay:0.0s;font-size:11px">z</text><text class="z" x="99" y="62" style="animation-delay:-1.2s;font-size:13px">z</text><text class="z" x="106" y="58" style="animation-delay:-2.4s;font-size:15px">Z</text>
 <text class="st" x="306" y="58" style="animation-delay:0.0s" xml:space="preserve">( (</text><text class="st" x="306" y="44" style="animation-delay:-1.2s" xml:space="preserve"> ) )</text><text class="mug" x="300" y="74" xml:space="preserve">._____.</text><text class="mug" x="300" y="90" xml:space="preserve">|     |]</text><text class="mug" x="300" y="106" xml:space="preserve">\_____/</text>
-<text class="a" x="150" y="26" xml:space="preserve"> @@.-&#x27;&#x27;&#x27;-.@@</text><text class="a" x="150" y="42" xml:space="preserve"> @/       \@</text><text class="a" x="150" y="58" xml:space="preserve"> | @@@ @@@ |</text><g class="open"><text class="a" x="150" y="74" xml:space="preserve"> | @o@ @o@ |</text></g><g class="shut"><text class="a" x="150" y="74" xml:space="preserve"> | @-@ @-@ |</text></g><text class="a" x="150" y="90" xml:space="preserve">  \  .v.  /</text><g class="ca"><text class="a" x="150" y="106" xml:space="preserve">   &#x27;-._.-&#x27;</text></g><g class="cb"><text class="a" x="150" y="106" xml:space="preserve">   &#x27;-.o.-&#x27;</text></g><g class="leaf"><text class="bb" x="266" y="26" xml:space="preserve">\|/</text></g><text class="bb" x="266" y="42" xml:space="preserve"> |</text><text class="bb" x="266" y="58" xml:space="preserve"> +</text><text class="bb" x="266" y="74" xml:space="preserve"> |</text><text class="bb" x="266" y="90" xml:space="preserve"> +</text><text class="bb" x="266" y="106" xml:space="preserve"> |</text>
+<g transform="translate(150 0)">
+<g class="leaf"><path class="bl" d="M73 16c-8-6-15-6-20-3 6 3 13 4 20 3z"/><path class="bl" d="M73 14c5-8 12-10 18-9-4 5-11 8-18 9z"/></g>
+<rect class="bs" x="70" y="12" width="6" height="98" rx="2"/>
+<path class="bn" d="M70 40h6M70 68h6M70 94h6"/>
+<ellipse class="pw" cx="40" cy="86" rx="27" ry="22"/>
+<ellipse class="pk" cx="22" cy="105" rx="9" ry="5.5"/><ellipse class="pk" cx="58" cy="105" rx="9" ry="5.5"/>
+<ellipse class="pk" cx="16" cy="84" rx="7" ry="13" transform="rotate(12 16 84)"/>
+<ellipse class="pk" cx="64" cy="76" rx="7" ry="13" transform="rotate(-30 64 76)"/>
+<g class="tilt">
+<circle class="pk" cx="17" cy="27" r="9"/><circle class="pk" cx="63" cy="27" r="9"/>
+<ellipse class="pw" cx="40" cy="45" rx="28" ry="23"/>
+<ellipse class="pk" cx="29" cy="44" rx="7" ry="9.5" transform="rotate(35 29 44)"/>
+<ellipse class="pk" cx="51" cy="44" rx="7" ry="9.5" transform="rotate(-35 51 44)"/>
+<g class="eyes"><circle class="pe" cx="30" cy="42" r="2.4"/><circle class="pe" cx="50" cy="42" r="2.4"/></g>
+<ellipse class="pn" cx="40" cy="54" rx="4" ry="2.8"/>
+<path class="pm" d="M36 59q4 3 8 0"/>
+</g></g>
 <g transform="translate(470 0)"><g class="stroll"><g class="hop"><text class="a" x="0" y="74" xml:space="preserve">(\_/)</text><text class="a" x="0" y="90" xml:space="preserve">(o.o)</text><text class="a" x="0" y="106" xml:space="preserve">(&quot;)(&quot;)</text></g></g></g>
 <g transform="translate(650 0)"><g class="peek"><text class="m" x="0" y="106" xml:space="preserve">&lt;.^__)~</text></g></g>
 </svg>
