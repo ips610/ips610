@@ -423,7 +423,7 @@ WORK = [
     ("shadow", "SHADOW", ["Spotting malware from raw executable bytes",
                           "Foundation model, with Dr. Maninder Singh"], shadow_stage),
     ("beacon", "BEACON", ["Recognizing players by how they play",
-                          "430 GB open dataset, 79 sessions from 28 players"], beacon_stage),
+                          "442 GB open dataset on Hugging Face"], beacon_stage),
     ("medical", "Interpretable medical AI", ["Diagnoses that clinicians can check and correct",
                                              "With Prof. Tim Miller, University of Queensland"], medical_stage),
     ("thapar", "Built for Thapar", ["Exam scheduling, timetables and course feedback",
