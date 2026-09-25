@@ -277,15 +277,16 @@ def render_footer(theme):
     """Nap time: a sleeping cat, a panda with its bamboo, a coffee, a hopping bunny and the mouse that got away."""
     c = THEMES[theme]
     def panda(x):
-        """Blinks now and then and keeps chewing; the bamboo leaves sway."""
-        eyes_open, eyes_shut = ascii_art([" /(o) (o)\\"], x, 74, "a"), ascii_art([" /(-) (-)\\"], x, 74, "a")
-        chew_a, chew_b = ascii_art([" \\___w___/"], x, 106, "a"), ascii_art([" \\___o___/"], x, 106, "a")
-        leaves = ascii_art(["\\|/"], x + 96, 42, "bb")
-        return (ascii_art([" @@ ___ @@"], x, 58, "a")
-                + f'<g class="open">{eyes_open}</g><g class="shut">{eyes_shut}</g>'
-                + ascii_art(["|   (_)   |"], x, 90, "a")
+        """Ears and eye patches in dense @ so it reads as a panda. It blinks and chews,
+        and its bamboo sways."""
+        head = ascii_art([" @@.-'''-.@@", " @/       \\@", " | @@@ @@@ |"], x, 26, "a")
+        eyes_open, eyes_shut = ascii_art([" | @o@ @o@ |"], x, 74, "a"), ascii_art([" | @-@ @-@ |"], x, 74, "a")
+        nose = ascii_art(["  \\  .v.  /"], x, 90, "a")
+        chew_a, chew_b = ascii_art(["   '-._.-'"], x, 106, "a"), ascii_art(["   '-.o.-'"], x, 106, "a")
+        leaves = ascii_art(["\\|/"], x + 116, 26, "bb")
+        return (head + f'<g class="open">{eyes_open}</g><g class="shut">{eyes_shut}</g>' + nose
                 + f'<g class="ca">{chew_a}</g><g class="cb">{chew_b}</g>'
-                + f'<g class="leaf">{leaves}</g>' + ascii_art([" |", " +", " |", " |"], x + 96, 58, "bb"))
+                + f'<g class="leaf">{leaves}</g>' + ascii_art([" |", " +", " |", " +", " |"], x + 116, 42, "bb"))
 
     zs = "".join(f'<text class="z" x="{92 + i * 7}" y="{66 - i * 4}" style="animation-delay:{-i * 1.2}s;'
                  f'font-size:{11 + i * 2}px">{ch}</text>' for i, ch in enumerate("zzZ"))
