@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43" height="45" viewBox="0 0 43 45" role="img" aria-labelledby="t">
+<title id="t">Nginx</title>
+<style>
+.pop{transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,.8,.3,1.25) backwards}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+.wave{animation:wave 8s ease-in-out infinite}
+@keyframes wave{0%,10%,100%{transform:translateY(0)}5%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.motion{display:none}}
+</style>
+<g class="pop" style="animation-delay:1.175s"><g class="wave" style="animation-delay:3.02s"><g transform="translate(3 5) scale(0.14453)"><svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256"><rect width="256" height="256" fill="#009639" rx="60" /><path fill="#fff" d="M195.338 213C190.746 213 186.224 211.213 182.847 207.829L78.3239 103.307V195.34C78.3239 205.095 70.4184 213 60.662 213C50.9126 213 43 205.095 43 195.34V60.6678C43 53.5189 47.3095 47.0834 53.908 44.3496C60.4995 41.6087 68.1012 43.1204 73.1525 48.1784L177.676 152.7V60.6678C177.676 50.9122 185.582 43.0074 195.338 43.0074C205.095 43.0074 213 50.9122 213 60.6678V195.34C213 202.481 208.69 208.924 202.092 211.658C199.909 212.562 197.62 213 195.338 213Z" /></svg>
+        </g></g></g>
+</svg>

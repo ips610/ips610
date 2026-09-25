@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43" height="45" viewBox="0 0 43 45" role="img" aria-labelledby="t">
+<title id="t">pandas</title>
+<style>
+.pop{transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,.8,.3,1.25) backwards}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+.wave{animation:wave 8s ease-in-out infinite}
+@keyframes wave{0%,10%,100%{transform:translateY(0)}5%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.motion{display:none}}
+</style>
+<g class="pop" style="animation-delay:0.700s"><g class="wave" style="animation-delay:2.58s"><g transform="translate(3 5) scale(0.14453)"><svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><rect width="256" height="256" rx="60" fill="#f4f2ed"/><path transform="translate(53 53) scale(6.25)" d="M16.922 0h2.623v18.104h-2.623zm-4.126 12.94h2.623v2.57h-2.623zm0-7.037h2.623v5.446h-2.623zm0 11.197h2.623v5.446h-2.623zM4.456 5.896h2.622V24H4.455zm4.213 2.559h2.623v2.57H8.67zm0 4.151h2.623v5.447H8.67zm0-11.187h2.623v5.446H8.67Z" fill="#150458"/></svg></g></g></g>
+</svg>

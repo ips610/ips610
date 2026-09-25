@@ -34,17 +34,25 @@ HERO_ROLE = "Cybersecurity and machine learning researcher"
 # hexdump row and the ASCII column ends every row with "." (0x0a).
 HERO_LINES = ["binary analysis", "user biometrics", "medical imaging", "network defense"]
 
-# Rows of the tool wall. Plain ids are skillicons.dev; "si:" ids are Simple Icons.
+# Rows of the tool wall: (icon id, name shown on hover). Plain ids are
+# skillicons.dev; "si:" ids are Simple Icons.
 TOOLS = [
-    ("Languages", ["py", "c", "cpp", "java", "ts", "js", "dart", "php", "r", "matlab",
-                   "solidity", "bash", "html", "css"]),
-    ("ML and data", ["pytorch", "tensorflow", "sklearn", "opencv", "si:huggingface", "si:jupyter",
-                     "si:pandas", "si:numpy", "si:kaggle"]),
-    ("Web and apps", ["react", "nextjs", "nodejs", "tailwind", "vite", "threejs", "flutter",
-                      "firebase", "flask", "fastapi", "selenium", "supabase"]),
-    ("Data and infra", ["mysql", "redis", "docker", "linux", "nginx", "si:apache", "gcp", "vercel",
-                        "cloudflare", "git", "githubactions"]),
-    ("Tools", ["latex", "arduino", "si:autocad", "androidstudio", "vscode"]),
+    ("Languages", [("py", "Python"), ("c", "C"), ("cpp", "C++"), ("java", "Java"), ("ts", "TypeScript"),
+                   ("js", "JavaScript"), ("dart", "Dart"), ("php", "PHP"), ("r", "R"), ("matlab", "MATLAB"),
+                   ("solidity", "Solidity"), ("bash", "Bash"), ("html", "HTML"), ("css", "CSS")]),
+    ("ML and data", [("pytorch", "PyTorch"), ("tensorflow", "TensorFlow"), ("sklearn", "scikit-learn"),
+                     ("opencv", "OpenCV"), ("si:huggingface", "Hugging Face"), ("si:jupyter", "Jupyter"),
+                     ("si:pandas", "pandas"), ("si:numpy", "NumPy"), ("si:kaggle", "Kaggle")]),
+    ("Web and apps", [("react", "React"), ("nextjs", "Next.js"), ("nodejs", "Node.js"),
+                      ("tailwind", "Tailwind CSS"), ("vite", "Vite"), ("threejs", "Three.js"),
+                      ("flutter", "Flutter"), ("firebase", "Firebase"), ("flask", "Flask"),
+                      ("fastapi", "FastAPI"), ("selenium", "Selenium"), ("supabase", "Supabase")]),
+    ("Data and infra", [("mysql", "MySQL"), ("redis", "Redis"), ("docker", "Docker"), ("linux", "Linux"),
+                        ("nginx", "Nginx"), ("si:apache", "Apache"), ("gcp", "Google Cloud"),
+                        ("vercel", "Vercel"), ("cloudflare", "Cloudflare"), ("git", "Git"),
+                        ("githubactions", "GitHub Actions")]),
+    ("Tools", [("latex", "LaTeX"), ("arduino", "Arduino"), ("si:autocad", "AutoCAD"),
+               ("androidstudio", "Android Studio"), ("vscode", "VS Code")]),
 ]
 SIMPLE_ICONS = "https://cdn.jsdelivr.net/npm/simple-icons@16.32.0"
 
@@ -113,8 +121,10 @@ def _face(source, weight, text):
             f'src:url(data:font/woff2;base64,{data}) format("woff2")}}')
 
 
-def fonts(sans600="", sans400="", mono=""):
+def fonts(sans600="", sans400="", mono="", sans500=""):
     rules = []
+    if sans500:
+        rules.append(_face("sans", 500, sans500))
     if sans600:
         rules.append(_face("sans", 600, sans600))
     if sans400:
@@ -431,6 +441,58 @@ WORK = [
 ]
 
 
+# -------------------------------------------------------------- link buttons
+
+LINKS = [
+    ("scholar", "Google Scholar", "si:googlescholar"),
+    ("linkedin", "LinkedIn", "linkedin"),
+    ("orcid", "ORCID", "si:orcid"),
+    ("email", "Email", "email"),
+]
+BUTTON_THEMES = {"dark": dict(bg="#212830", border="#3d444d", text="#f0f6fc"),
+                 "light": dict(bg="#f6f8fa", border="#d1d9e0", text="#25292e")}
+
+
+@functools.lru_cache(maxsize=None)
+def _metrics(weight):
+    from fontTools.ttLib import TTFont
+
+    font = TTFont(io.BytesIO(_font_bytes("sans", weight)), recalcTimestamp=False)
+    return font.getBestCmap(), font["hmtx"], font["head"].unitsPerEm
+
+
+def text_width(text, size, weight):
+    cmap, hmtx, upm = _metrics(weight)
+    return sum(hmtx[cmap[ord(ch)]][0] for ch in text) * size / upm
+
+
+def _button_icon(kind, theme):
+    """A 16px icon at the origin."""
+    c = THEMES[theme]
+    if kind == "email":
+        return (f'<rect x="1" y="3" width="14" height="10" rx="2" fill="none" stroke="{c["muted"]}" stroke-width="1.4"/>'
+                f'<path d="M1.8 4.2L8 8.8l6.2-4.6" fill="none" stroke="{c["muted"]}" stroke-width="1.4" stroke-linejoin="round"/>')
+    if kind == "linkedin":
+        return ('<rect width="16" height="16" rx="3" fill="#0a66c2"/>'
+                '<text x="8" y="12.2" class="in">in</text>')
+    slug = kind[3:]
+    path = re.search(r'<path d="([^"]+)"', fetch(f"{SIMPLE_ICONS}/icons/{slug}.svg").decode()).group(1)
+    return f'<path transform="scale(.6667)" d="{path}" fill="#{_simple_icons_meta()[slug]}"/>'
+
+
+def render_button(theme, label, icon):
+    b = BUTTON_THEMES[theme]
+    size, height = 14, 28
+    width = round(36 + text_width(label, size, 500) + 13)
+    style = fonts(sans500=label, sans600="in" if icon == "linkedin" else "") + f"""
+.lb{{font:500 {size}px {SANS};fill:{b["text"]}}}
+.in{{font:600 11px {SANS};fill:#fff;text-anchor:middle}}"""
+    body = f"""<rect x=".5" y=".5" width="{width - 1}" height="{height - 1}" rx="6" fill="{b["bg"]}" stroke="{b["border"]}"/>
+<g transform="translate(12 6)">{_button_icon(icon, theme)}</g>
+<text class="lb" x="36" y="19">{esc(label)}</text>"""
+    return svg(width, height, label, style, body)
+
+
 # ----------------------------------------------------------------- tool wall
 
 ET.register_namespace("", "http://www.w3.org/2000/svg")
@@ -474,32 +536,56 @@ def _skill_icons(ids, theme):
     return dict(zip(ids, icons))
 
 
-def render_tools(theme):
+def picture(dark, light, attrs):
+    """A <picture> that swaps to the dark image on dark themes."""
+    return (f'<picture><source media="(prefers-color-scheme: dark)" srcset="{dark}">'
+            f'<img src="{light}" {attrs}></picture>')
+
+
+def tool_file(tool, theme):
+    return f"assets/tools/{tool.replace(':', '-')}-{theme}.svg"
+
+
+def render_tool(theme, icon, name, pop_delay, wave_delay):
+    """One icon, 37px on a 43x45 canvas that leaves room for the ripple."""
+    style = """.pop{transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,.8,.3,1.25) backwards}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+.wave{animation:wave 8s ease-in-out infinite}
+@keyframes wave{0%,10%,100%{transform:translateY(0)}5%{transform:translateY(-5px)}}"""
+    body = (f'<g class="pop" style="animation-delay:{pop_delay:.3f}s"><g class="wave" style="animation-delay:{wave_delay:.2f}s">'
+            f'<g transform="translate(3 5) scale({37 / 256:.5f})">{icon}</g></g></g>')
+    return svg(43, 45, name, style, body)
+
+
+def render_tool_label(theme, label):
     c = THEMES[theme]
-    plain = [i for _, row in TOOLS for i in row if not i.startswith("si:")]
-    icons = _skill_icons(plain, theme)
-    size, pitch, x0, row_h = 37, 43, 118, 50
-    parts, n = [], 0
+    style = fonts(sans400=label) + f".lb{{font:400 13px {SANS};fill:{c['muted']}}}"
+    return svg(118, 45, label, style, f'<text class="lb" x="0" y="28">{esc(label)}</text>')
+
+
+def write_tools():
+    """Write every icon and label image, and return the README block that lays them out."""
+    out = ASSETS / "tools"
+    out.mkdir(exist_ok=True)
+    for old in out.glob("*.svg"):
+        old.unlink()
+    for theme in THEMES:
+        icons = _skill_icons([t for _, row in TOOLS for t, _ in row if not t.startswith("si:")], theme)
+        n = 0
+        for r, (label, row) in enumerate(TOOLS):
+            (ROOT / tool_file(f"row{r}", theme)).write_text(render_tool_label(theme, label))
+            for col, (tool, name) in enumerate(row):
+                icon = _simple_icon(tool[3:], theme) if tool.startswith("si:") else icons[tool]
+                svg_text = render_tool(theme, icon, name, 0.2 + n * 0.025, 1.8 + col * 0.08 + r * 0.3)
+                (ROOT / tool_file(tool, theme)).write_text(svg_text)
+                n += 1
+    rows = []
     for r, (label, row) in enumerate(TOOLS):
-        y = 8 + r * row_h
-        parts.append(f'<text class="lb" x="0" y="{y + size / 2 + 5:.1f}">{esc(label)}</text>')
-        for col, tool in enumerate(row):
-            icon = _simple_icon(tool[3:], theme) if tool.startswith("si:") else icons[tool]
-            parts.append(
-                f'<g class="pop" style="animation-delay:{0.2 + n * 0.025:.3f}s">'
-                f'<g class="wave" style="animation-delay:{1.8 + col * 0.08 + r * 0.3:.2f}s">'
-                f'<g transform="translate({x0 + col * pitch} {y}) scale({size / 256:.5f})">{icon}</g></g></g>')
-            n += 1
-    height = 8 + len(TOOLS) * row_h
-    labels = "".join(label for label, _ in TOOLS)
-    style = fonts(sans400=labels) + f"""
-.lb{{font:400 13px {SANS};fill:{c["muted"]}}}
-.pop{{transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,.8,.3,1.25) backwards}}
-@keyframes pop{{from{{opacity:0;transform:scale(.6)}}}}
-.wave{{animation:wave 8s ease-in-out infinite}}
-@keyframes wave{{0%,10%,100%{{transform:translateY(0)}}5%{{transform:translateY(-5px)}}}}"""
-    names = ", ".join(t[3:] if t.startswith("si:") else t for _, row in TOOLS for t in row)
-    return svg(720, height, f"Tools: {names}", style, "\n".join(parts))
+        cells = [picture(tool_file(f"row{r}", "dark"), tool_file(f"row{r}", "light"), f'height="45" alt="{esc(label)}"')]
+        cells += [picture(tool_file(t, "dark"), tool_file(t, "light"), f'height="45" alt="{esc(name)}" title="{esc(name)}"')
+                  for t, name in row]
+        rows.append("".join(cells) + "<br>")
+    return "\n".join(rows)
 
 
 # ------------------------------------------------------------------ activity
@@ -574,62 +660,111 @@ def plural(n, word):
     return f"{n:,} {word}{'' if n == 1 else 's'}"
 
 
-def render_activity(theme, stats):
+WEEK_W, WEEK_H, BAR_SPAN = 13, 50, 44
+
+
+def render_activity_stats(theme, stats):
     c = THEMES[theme]
-    total, current, longest, weeks = stats
-    width, height = 720, 158
+    total, current, longest, _ = stats
     figures = [
         (f"{total:,}", "contributions in the past year"),
         (plural(current, "day"), "current streak"),
         (plural(longest, "day"), "longest streak"),
     ]
-
     parts, sans_600, sans_400 = [], "", ""
     for i, (value, label) in enumerate(figures):
         x = i * 240
         parts.append(f'<text class="v" x="{x}" y="32">{esc(value)}</text>')
-        dx = 12 if i == 1 else 0
-        if dx and current:
+        dx = 12 if i == 1 and current else 0
+        if dx:
             parts.append(f'<circle class="live" cx="{x + 4}" cy="49.5" r="4" fill="{c["green"]}"/>')
-        parts.append(f'<text class="l" x="{x + 1 + (dx if current else 0)}" y="54">{esc(label)}</text>')
+        parts.append(f'<text class="l" x="{x + 1 + dx}" y="54">{esc(label)}</text>')
         sans_600 += value
         sans_400 += label
-
-    top, span = 82, 44
-    pitch = width / len(weeks)
-    peak = max((n for _, n in weeks), default=0) or 1
-    last_month = None
-    for i, (start, n) in enumerate(weeks):
-        x = i * pitch + 1.5
-        h = max(2.0, span * (n / peak) ** 0.5) if n else 2.0
-        cls = "bar" if n else "nil"
-        if i == len(weeks) - 1 and n:
-            cls += " now"
-        parts.append(f'<rect class="{cls}" style="animation-delay:{0.2 + i * 0.012:.3f}s" x="{x:.1f}" '
-                     f'y="{top + span - h:.1f}" width="{pitch - 3:.1f}" height="{h:.1f}" rx="1.5"><title>'
-                     f'{plural(n, "contribution")} in the week of {start}</title></rect>')
-        month = dt.date.fromisoformat(start).strftime("%b")
-        if month != last_month and i < len(weeks) - 2:
-            if last_month is not None:  # skip the partial month at the left edge
-                parts.append(f'<text class="mo" x="{x:.1f}" y="{top + span + 22}">{month}</text>')
-                sans_400 += month
-            last_month = month
-
     style = fonts(sans_600, sans_400) + f"""
 .v{{font:600 26px {SANS};fill:{c["ink"]};letter-spacing:-.01em}}
 .l{{font:400 14px {SANS};fill:{c["muted"]}}}
-.mo{{font:400 12px {SANS};fill:{c["muted"]}}}
+.live{{animation:glow 1.6s ease-in-out infinite}}@keyframes glow{{50%{{opacity:.45}}}}"""
+    return svg(720, 68, activity_summary(stats), style, "\n".join(parts))
+
+
+def render_week(theme, i, n, peak, last):
+    c = THEMES[theme]
+    h = max(2.0, BAR_SPAN * (n / peak) ** 0.5) if n else 2.0
+    cls = "bar now" if last and n else "bar" if n else "nil"
+    style = f"""
 .bar{{fill:{c["accent"]}}}.nil{{fill:{c["faint"]}}}
 .bar,.nil{{transform-box:fill-box;transform-origin:50% 100%;animation:grow .7s cubic-bezier(.2,.7,.2,1) backwards}}
 .now{{animation:grow .7s cubic-bezier(.2,.7,.2,1) backwards,glow 2.4s 1.5s ease-in-out infinite}}
-@keyframes grow{{from{{transform:scaleY(0)}}}}@keyframes glow{{50%{{opacity:.45}}}}
-.live{{animation:glow 1.6s ease-in-out infinite}}"""
-    title = (f"{total:,} contributions in the past year; current streak {plural(current, 'day')}; "
-             f"longest streak {plural(longest, 'day')}")
-    return svg(width, height, title, style, "\n".join(parts))
+@keyframes grow{{from{{transform:scaleY(0)}}}}@keyframes glow{{50%{{opacity:.45}}}}"""
+    body = (f'<rect class="{cls}" style="animation-delay:{0.2 + i * 0.012:.3f}s" x="1.5" y="{2 + BAR_SPAN - h:.1f}" '
+            f'width="{WEEK_W - 3}" height="{h:.1f}" rx="1.5"/>')
+    return svg(WEEK_W, WEEK_H, plural(n, "contribution"), style, body)
 
 
-# ---------------------------------------------------------------------- main
+def render_months(theme, weeks):
+    c = THEMES[theme]
+    parts, text, last_month = [], "", None
+    for i, (start, _) in enumerate(weeks):
+        month = dt.date.fromisoformat(start).strftime("%b")
+        if month != last_month and i < len(weeks) - 2:
+            if last_month is not None:  # skip the partial month at the left edge
+                parts.append(f'<text class="mo" x="{i * WEEK_W + 1.5}" y="14">{month}</text>')
+                text += month
+            last_month = month
+    style = fonts(sans400=text) + f".mo{{font:400 12px {SANS};fill:{c['muted']}}}"
+    return svg(WEEK_W * len(weeks), 20, "Months", style, "\n".join(parts))
+
+
+def activity_summary(stats):
+    total, current, longest, weeks = stats
+    busiest = max(weeks, key=lambda w: w[1])
+    return (f"{total:,} contributions in the past year. Current streak {plural(current, 'day')}, "
+            f"longest streak {plural(longest, 'day')}. Busiest: {plural(busiest[1], 'contribution')} "
+            f"in the week of {week_label(busiest[0])}.")
+
+
+def week_label(start):
+    return dt.date.fromisoformat(start).strftime("%-d %b %Y")
+
+
+def write_activity(stats):
+    """Write the stats, week and month images, and return the README block for them."""
+    total, current, longest, weeks = stats
+    out = ASSETS / "activity"
+    out.mkdir(exist_ok=True)
+    for old in out.glob("*.svg"):
+        old.unlink()
+    peak = max((n for _, n in weeks), default=0) or 1
+    for theme in THEMES:
+        (out / f"stats-{theme}.svg").write_text(render_activity_stats(theme, stats))
+        (out / f"months-{theme}.svg").write_text(render_months(theme, weeks))
+        for i, (_, n) in enumerate(weeks):
+            (out / f"week-{i:02d}-{theme}.svg").write_text(render_week(theme, i, n, peak, i == len(weeks) - 1))
+    summary = esc(activity_summary(stats))
+    bars = []
+    for i, (start, n) in enumerate(weeks):
+        tip = esc(f"Week of {week_label(start)}: {plural(n, 'contribution')}")
+        bars.append(picture(f"assets/activity/week-{i:02d}-dark.svg", f"assets/activity/week-{i:02d}-light.svg",
+                            f'height="{WEEK_H}" alt="{tip}" title="{tip}"'))
+    bars = "".join(bars)
+    return "\n".join([
+        picture("assets/activity/stats-dark.svg", "assets/activity/stats-light.svg",
+                f'width="720" alt="{summary}" title="{summary}"') + "<br>",
+        bars + "<br>",
+        picture("assets/activity/months-dark.svg", "assets/activity/months-light.svg",
+                f'height="20" alt="Months"'),
+    ])
+
+
+def update_readme(section, block):
+    """Replace the text between <!-- section:start --> and <!-- section:end --> in README.md."""
+    readme = ROOT / "README.md"
+    text = readme.read_text()
+    start, end = f"<!-- {section}:start -->", f"<!-- {section}:end -->"
+    i, j = text.index(start) + len(start), text.index(end)
+    readme.write_text(text[:i] + "\n" + block + "\n" + text[j:])
+
 
 def main():
     what = sys.argv[1] if len(sys.argv) > 1 else ""
@@ -638,12 +773,13 @@ def main():
             (ASSETS / f"hero-{theme}.svg").write_text(render_hero(theme))
             for key, title, lines, stage in WORK:
                 (ASSETS / f"work-{key}-{theme}.svg").write_text(tile(theme, title, lines, stage))
-            (ASSETS / f"tools-{theme}.svg").write_text(render_tools(theme))
+            for key, label, icon in LINKS:
+                (ASSETS / f"link-{key}-{theme}.svg").write_text(render_button(theme, label, icon))
+        update_readme("tools", write_tools())
     elif what == "activity":
         stats = summarise(*fetch_contributions())
-        for theme in THEMES:
-            (ASSETS / f"activity-{theme}.svg").write_text(render_activity(theme, stats))
-        print(f"{stats[0]} contributions, current streak {stats[1]}, longest {stats[2]}")
+        update_readme("activity", write_activity(stats))
+        print(activity_summary(stats))
     else:
         sys.exit(__doc__)
 

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43" height="45" viewBox="0 0 43 45" role="img" aria-labelledby="t">
+<title id="t">AutoCAD</title>
+<style>
+.pop{transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,.8,.3,1.25) backwards}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+.wave{animation:wave 8s ease-in-out infinite}
+@keyframes wave{0%,10%,100%{transform:translateY(0)}5%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.motion{display:none}}
+</style>
+<g class="pop" style="animation-delay:1.400s"><g class="wave" style="animation-delay:3.16s"><g transform="translate(3 5) scale(0.14453)"><svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><rect width="256" height="256" rx="60" fill="#f4f2ed"/><path transform="translate(53 53) scale(6.25)" d="M3.8672 1.0527v.0157L0 3.3848v17.914l3.8965-2.332h18.3398V2.3301c0-.702-.5773-1.2774-1.2793-1.2774H3.8672zm7.5058 4.0098h3.3008l2.9844 9.9512h-2.5879l-.5683-2.1895h-2.9844l-.5703 2.1621h-2.416l2.8417-9.9238zm11.8633.0273v14.877H4.172l-2.0684 1.2383v.4648c0 .702.5793 1.2774 1.2813 1.2774H24V5.0898h-.7637zM12.9668 6.6816l-.9941 4.3243h2.0468l-1.0527-4.3243z" fill="#E51050"/></svg></g></g></g>
+</svg>

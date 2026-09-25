@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="50" viewBox="0 0 13 50" role="img" aria-labelledby="t">
+<title id="t">0 contributions</title>
+<style>
+
+.bar{fill:#4493f8}.nil{fill:#3d444d}
+.bar,.nil{transform-box:fill-box;transform-origin:50% 100%;animation:grow .7s cubic-bezier(.2,.7,.2,1) backwards}
+.now{animation:grow .7s cubic-bezier(.2,.7,.2,1) backwards,glow 2.4s 1.5s ease-in-out infinite}
+@keyframes grow{from{transform:scaleY(0)}}@keyframes glow{50%{opacity:.45}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.motion{display:none}}
+</style>
+<rect class="nil" style="animation-delay:0.476s" x="1.5" y="44.0" width="10" height="2.0" rx="1.5"/>
+</svg>

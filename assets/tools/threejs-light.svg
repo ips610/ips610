@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43" height="45" viewBox="0 0 43 45" role="img" aria-labelledby="t">
+<title id="t">Three.js</title>
+<style>
+.pop{transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,.8,.3,1.25) backwards}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+.wave{animation:wave 8s ease-in-out infinite}
+@keyframes wave{0%,10%,100%{transform:translateY(0)}5%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.motion{display:none}}
+</style>
+<g class="pop" style="animation-delay:0.900s"><g class="wave" style="animation-delay:2.80s"><g transform="translate(3 5) scale(0.14453)"><svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+<rect width="256" height="256" rx="60" fill="white" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M93.213 222.94L50 48L223.23 97.874L93.213 222.94Z" stroke="black" stroke-width="4" stroke-miterlimit="10" stroke-linejoin="round" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M136.583 72.9419L158.174 160.438L71.6071 135.493L136.583 72.9419Z" stroke="black" stroke-width="4" stroke-miterlimit="10" stroke-linejoin="round" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M115.103 147.36L104.379 103.895L147.387 116.241L115.103 147.36Z" stroke="black" stroke-width="4" stroke-miterlimit="10" stroke-linejoin="round" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M93.6509 60.4829L104.375 103.948L61.3669 91.6019L93.6509 60.4829Z" stroke="black" stroke-width="4" stroke-miterlimit="10" stroke-linejoin="round" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M179.663 85.2598L190.387 128.725L147.379 116.379L179.663 85.2598Z" stroke="black" stroke-width="4" stroke-miterlimit="10" stroke-linejoin="round" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M115.108 147.39L125.832 190.855L82.824 178.509L115.108 147.39Z" stroke="black" stroke-width="4" stroke-miterlimit="10" stroke-linejoin="round" />
+</svg>
+
+        </g></g></g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43" height="45" viewBox="0 0 43 45" role="img" aria-labelledby="t">
+<title id="t">Flutter</title>
+<style>
+.pop{transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,.8,.3,1.25) backwards}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+.wave{animation:wave 8s ease-in-out infinite}
+@keyframes wave{0%,10%,100%{transform:translateY(0)}5%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.motion{display:none}}
+</style>
+<g class="pop" style="animation-delay:0.925s"><g class="wave" style="animation-delay:2.88s"><g transform="translate(3 5) scale(0.14453)"><svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256"><rect width="256" height="256" fill="#F4F2ED" rx="60" /><path fill="#44D1FD" d="M144.934 38.0615L200.709 38L107.134 131.526L82.7472 155.777L55 127.996L144.934 38.0615ZM144.415 121.569C145.139 120.613 146.471 121.085 147.482 120.962L200.661 120.975L152.194 169.395L124.303 141.675L144.415 121.569Z" /><path fill="#1FBCFD" d="M96.5013 169.442L124.303 141.675L152.194 169.395L152.31 169.518L124.31 197.258L96.5013 169.442V169.442Z" /><path fill="#08589C" d="M124.31 197.258L152.31 169.518L200.681 217.937C182.461 217.978 164.247 217.923 146.034 217.964C144.996 218.196 144.354 217.247 143.691 216.66L124.31 197.258V197.258Z" /></svg>
+        </g></g></g>
+</svg>
