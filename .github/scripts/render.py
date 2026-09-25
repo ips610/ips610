@@ -202,7 +202,22 @@ def render_hero(theme):
 <rect class="cur" x="{ax0}" y="{cy0}" width="11" height="21" rx="2">{walk("x", [a for _, a, _ in cursor])}{walk("y", ys)}</rect>
 </g>""")
 
+    cat_x = 606
+    parts.append(ascii_art([" /\\_/\\"], cat_x, 34, "cat")
+                 + ascii_art(["( o.o )"], cat_x, 50, "cat open") + ascii_art(["( -.- )"], cat_x, 50, "cat shut")
+                 + ascii_art([" > ^ <"], cat_x, 66, "cat")
+                 + f'<text class="cat tail" x="{cat_x + 58}" y="64">~</text>'
+                 + f'<text class="meow" x="{cat_x - 58}" y="28">meow!</text>')
+    mono += ASCII
+
     style = fonts(HERO_NAME, HERO_ROLE, mono) + f"""
+.cat{{font:400 14px {MONO};fill:{c["ink"]};white-space:pre}}
+.open{{animation:open 5s infinite}}@keyframes open{{0%,90%{{opacity:1}}90.5%,95%{{opacity:0}}95.5%,100%{{opacity:1}}}}
+.shut{{opacity:0;animation:shut 5s infinite}}@keyframes shut{{0%,90%{{opacity:0}}90.5%,95%{{opacity:1}}95.5%,100%{{opacity:0}}}}
+.tail{{transform-box:fill-box;transform-origin:0 100%;animation:wag 1.6s ease-in-out infinite alternate}}
+@keyframes wag{{from{{transform:rotate(-14deg)}}to{{transform:rotate(16deg)}}}}
+.meow{{font:400 12px {MONO};fill:{c["accent"]};opacity:0;animation:meow 9s 3s infinite}}
+@keyframes meow{{0%{{opacity:0;transform:translateY(4px)}}4%,16%{{opacity:1;transform:translateY(0)}}22%,100%{{opacity:0;transform:translateY(-4px)}}}}
 .name{{font:600 50px {SANS};fill:{c["ink"]};letter-spacing:-.02em}}
 .role{{font:400 19px {SANS};fill:{c["muted"]}}}
 .m{{font:400 15px {MONO}}}
@@ -214,6 +229,74 @@ def render_hero(theme):
     body = (f'<text class="name" x="0" y="60">{esc(HERO_NAME)}</text>\n'
             f'<text class="role" x="1" y="98">{esc(HERO_ROLE)}</text>\n' + "\n".join(parts))
     return svg(720, end_y + 22, f"{HERO_NAME}, {HERO_ROLE}", style, body)
+
+
+# ------------------------------------------------------------------ animals
+
+ASCII = "".join(chr(i) for i in range(0x20, 0x7F))
+
+# Two-frame animation: .fa shows on the first half of each beat, .fb on the second.
+FRAMES = """.fa{{animation:fa {t} steps(1) infinite}}@keyframes fa{{50%{{opacity:0}}}}
+.fb{{opacity:0;animation:fb {t} steps(1) infinite}}@keyframes fb{{50%{{opacity:1}}}}"""
+
+
+def ascii_art(lines, x, y, cls, lh=16):
+    return "".join(f'<text class="{cls}" x="{x}" y="{y + i * lh}" xml:space="preserve">{esc(line)}</text>'
+                   for i, line in enumerate(lines))
+
+
+def render_chase(theme):
+    """A cat chases a mouse across the page while two birds flap the other way."""
+    c = THEMES[theme]
+    cat_a = ["   /\\_/\\", "~ ( o.o )", "  (\")_(\")"]
+    cat_b = ["   /\\_/\\", "- ( o.o )", " (\")__(\")"]
+    runners = (f'<g transform="translate(250 0)"><g class="run">'
+               f'<g class="bob"><g class="fa">{ascii_art(cat_a, 0, 40, "a")}</g><g class="fb">{ascii_art(cat_b, 0, 40, "a")}</g></g>'
+               f'<g class="fa">{ascii_art(["~~(__^.>"], 110, 72, "m")}</g><g class="fb">{ascii_art(["-~(__^.>"], 110, 72, "m")}</g>'
+               f'</g></g>')
+
+    def bird(x, y, size, dur, delay):
+        return (f'<g transform="translate({x} {y})"><g class="fly" style="animation-duration:{dur}s;animation-delay:{delay}s">'
+                f'<g class="drift"><text class="bd fl" style="font-size:{size}px">\\v/</text>'
+                f'<text class="bd fl2" style="font-size:{size}px">-v-</text></g></g></g>')
+
+    body = runners + bird(500, 16, 14, 14, 2) + bird(560, 30, 11, 17, 6)
+    style = fonts(mono=ASCII) + f"""
+.a{{font:400 14px {MONO};fill:{c["ink"]};white-space:pre}}.m{{font:400 14px {MONO};fill:{c["muted"]};white-space:pre}}
+.bd{{font-family:{MONO};fill:{c["muted"]};white-space:pre}}
+{FRAMES.format(t=".45s")}
+.fl{{animation:fa .4s steps(1) infinite}}.fl2{{opacity:0;animation:fb .4s steps(1) infinite}}
+.run{{animation:run 12s linear infinite}}@keyframes run{{from{{transform:translateX(-440px)}}to{{transform:translateX(480px)}}}}
+.bob{{animation:bob .45s ease-in-out infinite alternate}}@keyframes bob{{to{{transform:translateY(-2px)}}}}
+.fly{{animation:fly 14s linear infinite backwards}}@keyframes fly{{from{{transform:translateX(260px)}}to{{transform:translateX(-600px)}}}}
+.drift{{animation:drift 1.4s ease-in-out infinite alternate}}@keyframes drift{{to{{transform:translateY(4px)}}}}"""
+    return svg(720, 84, "A cat chasing a mouse, with birds flying overhead", style, body)
+
+
+def render_footer(theme):
+    """Nap time: a sleeping cat, a coffee, a hopping bunny and the mouse that got away."""
+    c = THEMES[theme]
+    zs = "".join(f'<text class="z" x="{92 + i * 7}" y="{66 - i * 4}" style="animation-delay:{-i * 1.2}s;'
+                 f'font-size:{11 + i * 2}px">{ch}</text>' for i, ch in enumerate("zzZ"))
+    steam = "".join(f'<text class="st" x="306" y="{58 - i * 14}" style="animation-delay:{-i * 1.2}s" '
+                    f'xml:space="preserve">{esc(line)}</text>' for i, line in enumerate(["( (", " ) )"]))
+    body = f"""<path d="M0 112.5H720" stroke="{c["faint"]}" stroke-dasharray="2 6"/>
+{ascii_art([" /\\_/\\", "( -.- )", " > ^ <"], 24, 74, "a")}{zs}
+{steam}{ascii_art(["._____.", "|     |]", "\\_____/"], 300, 74, "mug")}
+<g transform="translate(470 0)"><g class="stroll"><g class="hop">{ascii_art(["(\\_/)", "(o.o)", "(\")(\")"], 0, 74, "a")}</g></g></g>
+<g transform="translate(650 0)"><g class="peek">{ascii_art(["<.^__)~"], 0, 106, "m")}</g></g>"""
+    style = fonts(mono=ASCII) + f"""
+.a{{font:400 14px {MONO};fill:{c["ink"]};white-space:pre}}.m{{font:400 14px {MONO};fill:{c["muted"]};white-space:pre}}
+.mug{{font:400 14px {MONO};fill:{c["amber"]};white-space:pre}}
+.z{{font-family:{MONO};fill:{c["accent"]};animation:z 3.6s ease-out infinite}}
+@keyframes z{{0%{{opacity:0;transform:translate(0,0)}}20%{{opacity:1}}100%{{opacity:0;transform:translate(10px,-30px)}}}}
+.st{{font:400 14px {MONO};fill:{c["muted"]};white-space:pre;animation:st 2.4s ease-out infinite}}
+@keyframes st{{0%{{opacity:0;transform:translateY(8px)}}35%{{opacity:.9}}100%{{opacity:0;transform:translateY(-10px)}}}}
+.hop{{animation:hop .8s cubic-bezier(.3,0,.7,1) infinite}}@keyframes hop{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-12px)}}}}
+.stroll{{animation:stroll 7s ease-in-out infinite alternate}}@keyframes stroll{{to{{transform:translateX(110px)}}}}
+.peek{{animation:peek 8s ease-in-out infinite}}
+@keyframes peek{{0%,40%{{transform:translateX(90px)}}50%,75%{{transform:translateX(0)}}85%,100%{{transform:translateX(90px)}}}}"""
+    return svg(720, 118, "A napping cat, a coffee, a hopping bunny and the mouse that got away", style, body)
 
 
 # --------------------------------------------------------------- work tiles
@@ -785,6 +868,8 @@ def main():
     if what == "static":
         for theme in THEMES:
             (ASSETS / f"hero-{theme}.svg").write_text(render_hero(theme))
+            (ASSETS / f"animals-chase-{theme}.svg").write_text(render_chase(theme))
+            (ASSETS / f"animals-nap-{theme}.svg").write_text(render_footer(theme))
             for key, title, lines, stage in WORK:
                 (ASSETS / f"work-{key}-{theme}.svg").write_text(tile(theme, title, lines, stage))
             for key, label, icon in LINKS:
