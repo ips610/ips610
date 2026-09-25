@@ -1,0 +1,42 @@
+name: Refresh activity card
+
+on:
+  schedule:
+    - cron: "30 18 * * *" # daily at 00:00 IST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: activity
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install font tools
+        run: |
+          python3 -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/pip" install --quiet fonttools brotli
+
+      - name: Render
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FONT_CACHE: ${{ runner.temp }}/fonts
+        run: '"$RUNNER_TEMP/venv/bin/python" .github/scripts/render.py activity'
+
+      - name: Commit if changed
+        run: |
+          git add assets/activity-*.svg
+          if git diff --cached --quiet; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh activity card"
+          git push
