@@ -205,8 +205,8 @@ def render_hero(theme):
     cat_x = 606
     parts.append(ascii_art([" /\\_/\\"], cat_x, 34, "cat")
                  + ascii_art(["( o.o )"], cat_x, 50, "cat open") + ascii_art(["( -.- )"], cat_x, 50, "cat shut")
-                 + ascii_art([" > ^ <"], cat_x, 66, "cat")
-                 + f'<text class="cat tail" x="{cat_x + 58}" y="64">~</text>'
+                 + ascii_art([" > ^ <_/"], cat_x, 66, "cat")
+                 + ascii_art([")"], cat_x + 8 * 8.4, 50, "cat ta") + ascii_art(["("], cat_x + 8 * 8.4, 50, "cat tb")
                  + f'<text class="meow" x="{cat_x - 58}" y="28">meow!</text>')
     mono += ASCII
 
@@ -214,8 +214,8 @@ def render_hero(theme):
 .cat{{font:400 14px {MONO};fill:{c["ink"]};white-space:pre}}
 .open{{animation:open 5s infinite}}@keyframes open{{0%,90%{{opacity:1}}90.5%,95%{{opacity:0}}95.5%,100%{{opacity:1}}}}
 .shut{{opacity:0;animation:shut 5s infinite}}@keyframes shut{{0%,90%{{opacity:0}}90.5%,95%{{opacity:1}}95.5%,100%{{opacity:0}}}}
-.tail{{transform-box:fill-box;transform-origin:0 100%;animation:wag 1.6s ease-in-out infinite alternate}}
-@keyframes wag{{from{{transform:rotate(-14deg)}}to{{transform:rotate(16deg)}}}}
+.ta{{animation:fa 1.2s steps(1) infinite}}.tb{{opacity:0;animation:fb 1.2s steps(1) infinite}}
+@keyframes fa{{50%{{opacity:0}}}}@keyframes fb{{50%{{opacity:1}}}}
 .meow{{font:400 12px {MONO};fill:{c["accent"]};opacity:0;animation:meow 9s 3s infinite}}
 @keyframes meow{{0%{{opacity:0;transform:translateY(4px)}}4%,16%{{opacity:1;transform:translateY(0)}}22%,100%{{opacity:0;transform:translateY(-4px)}}}}
 .name{{font:600 50px {SANS};fill:{c["ink"]};letter-spacing:-.02em}}
@@ -274,8 +274,19 @@ def render_chase(theme):
 
 
 def render_footer(theme):
-    """Nap time: a sleeping cat, a coffee, a hopping bunny and the mouse that got away."""
+    """Nap time: a sleeping cat, a panda with its bamboo, a coffee, a hopping bunny and the mouse that got away."""
     c = THEMES[theme]
+    def panda(x):
+        """Blinks now and then and keeps chewing; the bamboo leaves sway."""
+        eyes_open, eyes_shut = ascii_art([" /(o) (o)\\"], x, 74, "a"), ascii_art([" /(-) (-)\\"], x, 74, "a")
+        chew_a, chew_b = ascii_art([" \\___w___/"], x, 106, "a"), ascii_art([" \\___o___/"], x, 106, "a")
+        leaves = ascii_art(["\\|/"], x + 96, 42, "bb")
+        return (ascii_art([" @@ ___ @@"], x, 58, "a")
+                + f'<g class="open">{eyes_open}</g><g class="shut">{eyes_shut}</g>'
+                + ascii_art(["|   (_)   |"], x, 90, "a")
+                + f'<g class="ca">{chew_a}</g><g class="cb">{chew_b}</g>'
+                + f'<g class="leaf">{leaves}</g>' + ascii_art([" |", " +", " |", " |"], x + 96, 58, "bb"))
+
     zs = "".join(f'<text class="z" x="{92 + i * 7}" y="{66 - i * 4}" style="animation-delay:{-i * 1.2}s;'
                  f'font-size:{11 + i * 2}px">{ch}</text>' for i, ch in enumerate("zzZ"))
     steam = "".join(f'<text class="st" x="306" y="{58 - i * 14}" style="animation-delay:{-i * 1.2}s" '
@@ -283,6 +294,7 @@ def render_footer(theme):
     body = f"""<path d="M0 112.5H720" stroke="{c["faint"]}" stroke-dasharray="2 6"/>
 {ascii_art([" /\\_/\\", "( -.- )", " > ^ <"], 24, 74, "a")}{zs}
 {steam}{ascii_art(["._____.", "|     |]", "\\_____/"], 300, 74, "mug")}
+{panda(150)}
 <g transform="translate(470 0)"><g class="stroll"><g class="hop">{ascii_art(["(\\_/)", "(o.o)", "(\")(\")"], 0, 74, "a")}</g></g></g>
 <g transform="translate(650 0)"><g class="peek">{ascii_art(["<.^__)~"], 0, 106, "m")}</g></g>"""
     style = fonts(mono=ASCII) + f"""
@@ -294,9 +306,16 @@ def render_footer(theme):
 @keyframes st{{0%{{opacity:0;transform:translateY(8px)}}35%{{opacity:.9}}100%{{opacity:0;transform:translateY(-10px)}}}}
 .hop{{animation:hop .8s cubic-bezier(.3,0,.7,1) infinite}}@keyframes hop{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-12px)}}}}
 .stroll{{animation:stroll 7s ease-in-out infinite alternate}}@keyframes stroll{{to{{transform:translateX(110px)}}}}
+.bb{{font:400 14px {MONO};fill:{c["green"]};white-space:pre}}
+.open{{animation:open 6s infinite}}@keyframes open{{0%,88%{{opacity:1}}88.5%,93%{{opacity:0}}93.5%,100%{{opacity:1}}}}
+.shut{{opacity:0;animation:shut 6s infinite}}@keyframes shut{{0%,88%{{opacity:0}}88.5%,93%{{opacity:1}}93.5%,100%{{opacity:0}}}}
+.ca{{animation:fa .5s steps(1) infinite}}.cb{{opacity:0;animation:fb .5s steps(1) infinite}}
+@keyframes fa{{50%{{opacity:0}}}}@keyframes fb{{50%{{opacity:1}}}}
+.leaf{{transform-box:fill-box;transform-origin:50% 100%;animation:sway 2.2s ease-in-out infinite alternate}}
+@keyframes sway{{from{{transform:rotate(-8deg)}}to{{transform:rotate(8deg)}}}}
 .peek{{animation:peek 8s ease-in-out infinite}}
 @keyframes peek{{0%,40%{{transform:translateX(90px)}}50%,75%{{transform:translateX(0)}}85%,100%{{transform:translateX(90px)}}}}"""
-    return svg(720, 118, "A napping cat, a coffee, a hopping bunny and the mouse that got away", style, body)
+    return svg(720, 118, "A napping cat, a panda munching bamboo, a coffee, a hopping bunny and the mouse that got away", style, body)
 
 
 # --------------------------------------------------------------- work tiles

@@ -26,4 +26,4 @@
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/activity/months-dark.svg"><img src="assets/activity/months-light.svg" height="20" alt="Months"></picture>
 <!-- activity:end -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/animals-nap-dark.svg"><img src="assets/animals-nap-light.svg" width="720" alt="A napping cat, a coffee, a hopping bunny and the mouse that got away" title="Thanks for visiting. Coffee is on me."></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/animals-nap-dark.svg"><img src="assets/animals-nap-light.svg" width="720" alt="A napping cat, a panda munching bamboo, a coffee, a hopping bunny and the mouse that got away" title="Thanks for visiting. Coffee is on me."></picture>

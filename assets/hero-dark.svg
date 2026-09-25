@@ -7,8 +7,8 @@
 .cat{font:400 14px Mono,ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;fill:#f0f6fc;white-space:pre}
 .open{animation:open 5s infinite}@keyframes open{0%,90%{opacity:1}90.5%,95%{opacity:0}95.5%,100%{opacity:1}}
 .shut{opacity:0;animation:shut 5s infinite}@keyframes shut{0%,90%{opacity:0}90.5%,95%{opacity:1}95.5%,100%{opacity:0}}
-.tail{transform-box:fill-box;transform-origin:0 100%;animation:wag 1.6s ease-in-out infinite alternate}
-@keyframes wag{from{transform:rotate(-14deg)}to{transform:rotate(16deg)}}
+.ta{animation:fa 1.2s steps(1) infinite}.tb{opacity:0;animation:fb 1.2s steps(1) infinite}
+@keyframes fa{50%{opacity:0}}@keyframes fb{50%{opacity:1}}
 .meow{font:400 12px Mono,ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;fill:#4493f8;opacity:0;animation:meow 9s 3s infinite}
 @keyframes meow{0%{opacity:0;transform:translateY(4px)}4%,16%{opacity:1;transform:translateY(0)}22%,100%{opacity:0;transform:translateY(-4px)}}
 .name{font:600 50px Sans,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;fill:#f0f6fc;letter-spacing:-.02em}
@@ -165,5 +165,5 @@
 <text class="m nl dec" x="684" y="230" style="animation-delay:2.114s">.</text>
 <text class="m off" x="2" y="256">00000040</text>
 <rect class="caret" x="84" y="243" width="9" height="16" rx="1"/>
-<text class="cat" x="606" y="34" xml:space="preserve"> /\_/\</text><text class="cat open" x="606" y="50" xml:space="preserve">( o.o )</text><text class="cat shut" x="606" y="50" xml:space="preserve">( -.- )</text><text class="cat" x="606" y="66" xml:space="preserve"> &gt; ^ &lt;</text><text class="cat tail" x="664" y="64">~</text><text class="meow" x="548" y="28">meow!</text>
+<text class="cat" x="606" y="34" xml:space="preserve"> /\_/\</text><text class="cat open" x="606" y="50" xml:space="preserve">( o.o )</text><text class="cat shut" x="606" y="50" xml:space="preserve">( -.- )</text><text class="cat" x="606" y="66" xml:space="preserve"> &gt; ^ &lt;_/</text><text class="cat ta" x="673.2" y="50" xml:space="preserve">)</text><text class="cat tb" x="673.2" y="50" xml:space="preserve">(</text><text class="meow" x="548" y="28">meow!</text>
 </svg>
