@@ -9,14 +9,14 @@
 .shut{opacity:0;animation:shut 5s infinite}@keyframes shut{0%,90%{opacity:0}90.5%,95%{opacity:1}95.5%,100%{opacity:0}}
 .ta{animation:fa 1.2s steps(1) infinite}.tb{opacity:0;animation:fb 1.2s steps(1) infinite}
 @keyframes fa{50%{opacity:0}}@keyframes fb{50%{opacity:1}}
-.meow{font:400 12px Mono,ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;fill:#0969da;opacity:0;animation:meow 9s 3s infinite}
+.meow{font:400 12px Mono,ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;fill:#6b1735;opacity:0;animation:meow 9s 3s infinite}
 @keyframes meow{0%{opacity:0;transform:translateY(4px)}4%,16%{opacity:1;transform:translateY(0)}22%,100%{opacity:0;transform:translateY(-4px)}}
 .name{font:600 50px Sans,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;fill:#1f2328;letter-spacing:-.02em}
 .role{font:400 19px Sans,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;fill:#59636e}
 .m{font:400 15px Mono,ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace}
-.off{fill:#9198a1}.b{fill:#0969da}.sp{fill:#9198a1}.nl{fill:#9a6700}
-.cur{fill:#0969da;fill-opacity:.2}
-.caret{fill:#0969da;animation:blink 1.1s steps(1) infinite}
+.off{fill:#9198a1}.b{fill:#7a2140}.sp{fill:#9198a1}.nl{fill:#8a6a1f}
+.cur{fill:#7a2140;fill-opacity:.2}
+.caret{fill:#7a2140;animation:blink 1.1s steps(1) infinite}
 .hx{animation:hx .4s ease-out backwards}.dec{animation:dec .4s ease-out backwards}
 @keyframes hx{from{opacity:.2}}@keyframes dec{from{opacity:0}}@keyframes blink{50%{opacity:0}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}.motion{display:none}}

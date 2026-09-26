@@ -10,8 +10,8 @@
 .slot{fill:none;stroke:#3d444d;stroke-dasharray:3 3}
 .b0{transform-box:fill-box;transform-origin:center;animation:b0 10s infinite}@keyframes b0{0%,5.0%{opacity:0;transform:scale(.6)}8.0%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b1{transform-box:fill-box;transform-origin:center;animation:b1 10s infinite}@keyframes b1{0%,8.2%{opacity:0;transform:scale(.6)}11.2%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b2{transform-box:fill-box;transform-origin:center;animation:b2 10s infinite}@keyframes b2{0%,11.4%{opacity:0;transform:scale(.6)}14.4%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b3{transform-box:fill-box;transform-origin:center;animation:b3 10s infinite}@keyframes b3{0%,14.6%{opacity:0;transform:scale(.6)}17.6%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b4{transform-box:fill-box;transform-origin:center;animation:b4 10s infinite}@keyframes b4{0%,17.8%{opacity:0;transform:scale(.6)}20.8%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b5{transform-box:fill-box;transform-origin:center;animation:b5 10s infinite}@keyframes b5{0%,21.0%{opacity:0;transform:scale(.6)}24.0%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b6{transform-box:fill-box;transform-origin:center;animation:b6 10s infinite}@keyframes b6{0%,24.2%{opacity:0;transform:scale(.6)}27.2%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b7{transform-box:fill-box;transform-origin:center;animation:b7 10s infinite}@keyframes b7{0%,27.4%{opacity:0;transform:scale(.6)}30.4%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b8{transform-box:fill-box;transform-origin:center;animation:b8 10s infinite}@keyframes b8{0%,30.6%{opacity:0;transform:scale(.6)}33.6%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b9{transform-box:fill-box;transform-origin:center;animation:b9 10s infinite}@keyframes b9{0%,33.8%{opacity:0;transform:scale(.6)}36.8%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b10{transform-box:fill-box;transform-origin:center;animation:b10 10s infinite}@keyframes b10{0%,37.0%{opacity:0;transform:scale(.6)}40.0%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b11{transform-box:fill-box;transform-origin:center;animation:b11 10s infinite}@keyframes b11{0%,40.2%{opacity:0;transform:scale(.6)}43.2%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.b12{transform-box:fill-box;transform-origin:center;animation:b12 10s infinite}@keyframes b12{0%,43.4%{opacity:0;transform:scale(.6)}46.4%,90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(1)}}.cf{animation:cf 10s infinite}
 @keyframes cf{0%,47.9%{opacity:0;transform:translate(-72px,-36px)}50%,56%{opacity:1;transform:translate(-72px,-36px)}52%,54%{transform:translate(-70px,-36px)}53%{transform:translate(-74px,-36px)}63%,90%{opacity:1;transform:translate(0,0)}95%,100%{opacity:0;transform:translate(0,0)}}
-.cfr{fill:#4493f8;stroke:#4493f8;animation:cfr 10s infinite}@keyframes cfr{0%,57%{fill:#f85149;stroke:#f85149}63%,100%{fill:#4493f8;stroke:#4493f8}}
-.cft{fill:#4493f8;animation:cft 10s infinite}@keyframes cft{0%,57%{fill:#f85149}63%,100%{fill:#4493f8}}
+.cfr{fill:#e2899f;stroke:#e2899f;animation:cfr 10s infinite}@keyframes cfr{0%,57%{fill:#f08b7c;stroke:#f08b7c}63%,100%{fill:#e2899f;stroke:#e2899f}}
+.cft{fill:#e2899f;animation:cft 10s infinite}@keyframes cft{0%,57%{fill:#f08b7c}63%,100%{fill:#e2899f}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}.motion{display:none}}
 </style>
 <clipPath id="stage"><rect x="1" y="1" width="398" height="184"/></clipPath>
@@ -43,19 +43,19 @@
 <rect x="310" y="72" width="64" height="28" rx="5" class="slot"/>
 <rect x="310" y="108" width="64" height="28" rx="5" class="slot"/>
 <rect x="310" y="144" width="64" height="28" rx="5" class="slot"/>
-<g class="b0"><rect x="22" y="36" width="64" height="28" rx="5" fill="#4493f8" fill-opacity=".16" stroke="#4493f8"/><text x="54" y="54" fill="#4493f8">UCS301</text></g>
-<g class="b1"><rect x="166" y="72" width="64" height="28" rx="5" fill="#ab7df8" fill-opacity=".16" stroke="#ab7df8"/><text x="198" y="90" fill="#ab7df8">UML501</text></g>
-<g class="b2"><rect x="310" y="36" width="64" height="28" rx="5" fill="#3fb950" fill-opacity=".16" stroke="#3fb950"/><text x="342" y="54" fill="#3fb950">UCS414</text></g>
-<g class="b3"><rect x="94" y="108" width="64" height="28" rx="5" fill="#d29922" fill-opacity=".16" stroke="#d29922"/><text x="126" y="126" fill="#d29922">UCS415</text></g>
-<g class="b4"><rect x="238" y="144" width="64" height="28" rx="5" fill="#db61a2" fill-opacity=".16" stroke="#db61a2"/><text x="270" y="162" fill="#db61a2">UCS411</text></g>
-<g class="b5"><rect x="22" y="108" width="64" height="28" rx="5" fill="#4493f8" fill-opacity=".16" stroke="#4493f8"/><text x="54" y="126" fill="#4493f8">UCS413</text></g>
-<g class="b6"><rect x="166" y="144" width="64" height="28" rx="5" fill="#ab7df8" fill-opacity=".16" stroke="#ab7df8"/><text x="198" y="162" fill="#ab7df8">UMA021</text></g>
-<g class="b7"><rect x="310" y="72" width="64" height="28" rx="5" fill="#3fb950" fill-opacity=".16" stroke="#3fb950"/><text x="342" y="90" fill="#3fb950">UES013</text></g>
-<g class="b8"><rect x="94" y="36" width="64" height="28" rx="5" fill="#d29922" fill-opacity=".16" stroke="#d29922"/><text x="126" y="54" fill="#d29922">UCS303</text></g>
-<g class="b9"><rect x="238" y="72" width="64" height="28" rx="5" fill="#db61a2" fill-opacity=".16" stroke="#db61a2"/><text x="270" y="90" fill="#db61a2">UHU005</text></g>
-<g class="b10"><rect x="22" y="144" width="64" height="28" rx="5" fill="#4493f8" fill-opacity=".16" stroke="#4493f8"/><text x="54" y="162" fill="#4493f8">UCS520</text></g>
-<g class="b11"><rect x="166" y="36" width="64" height="28" rx="5" fill="#ab7df8" fill-opacity=".16" stroke="#ab7df8"/><text x="198" y="54" fill="#ab7df8">UCS701</text></g>
-<g class="b12"><rect x="310" y="144" width="64" height="28" rx="5" fill="#3fb950" fill-opacity=".16" stroke="#3fb950"/><text x="342" y="162" fill="#3fb950">UEC001</text></g>
+<g class="b0"><rect x="22" y="36" width="64" height="28" rx="5" fill="#e2899f" fill-opacity=".16" stroke="#e2899f"/><text x="54" y="54" fill="#e2899f">UCS301</text></g>
+<g class="b1"><rect x="166" y="72" width="64" height="28" rx="5" fill="#c3a3e6" fill-opacity=".16" stroke="#c3a3e6"/><text x="198" y="90" fill="#c3a3e6">UML501</text></g>
+<g class="b2"><rect x="310" y="36" width="64" height="28" rx="5" fill="#8cc9a1" fill-opacity=".16" stroke="#8cc9a1"/><text x="342" y="54" fill="#8cc9a1">UCS414</text></g>
+<g class="b3"><rect x="94" y="108" width="64" height="28" rx="5" fill="#d8b77e" fill-opacity=".16" stroke="#d8b77e"/><text x="126" y="126" fill="#d8b77e">UCS415</text></g>
+<g class="b4"><rect x="238" y="144" width="64" height="28" rx="5" fill="#e59bc0" fill-opacity=".16" stroke="#e59bc0"/><text x="270" y="162" fill="#e59bc0">UCS411</text></g>
+<g class="b5"><rect x="22" y="108" width="64" height="28" rx="5" fill="#e2899f" fill-opacity=".16" stroke="#e2899f"/><text x="54" y="126" fill="#e2899f">UCS413</text></g>
+<g class="b6"><rect x="166" y="144" width="64" height="28" rx="5" fill="#c3a3e6" fill-opacity=".16" stroke="#c3a3e6"/><text x="198" y="162" fill="#c3a3e6">UMA021</text></g>
+<g class="b7"><rect x="310" y="72" width="64" height="28" rx="5" fill="#8cc9a1" fill-opacity=".16" stroke="#8cc9a1"/><text x="342" y="90" fill="#8cc9a1">UES013</text></g>
+<g class="b8"><rect x="94" y="36" width="64" height="28" rx="5" fill="#d8b77e" fill-opacity=".16" stroke="#d8b77e"/><text x="126" y="54" fill="#d8b77e">UCS303</text></g>
+<g class="b9"><rect x="238" y="72" width="64" height="28" rx="5" fill="#e59bc0" fill-opacity=".16" stroke="#e59bc0"/><text x="270" y="90" fill="#e59bc0">UHU005</text></g>
+<g class="b10"><rect x="22" y="144" width="64" height="28" rx="5" fill="#e2899f" fill-opacity=".16" stroke="#e2899f"/><text x="54" y="162" fill="#e2899f">UCS520</text></g>
+<g class="b11"><rect x="166" y="36" width="64" height="28" rx="5" fill="#c3a3e6" fill-opacity=".16" stroke="#c3a3e6"/><text x="198" y="54" fill="#c3a3e6">UCS701</text></g>
+<g class="b12"><rect x="310" y="144" width="64" height="28" rx="5" fill="#8cc9a1" fill-opacity=".16" stroke="#8cc9a1"/><text x="342" y="162" fill="#8cc9a1">UEC001</text></g>
 <g class="cf"><rect class="cfr" x="238" y="108" width="64" height="28" rx="5" fill-opacity=".16"/><text class="cft" x="270" y="126">UCS648</text></g>
 </g>
 <path d="M1 185.5H399" stroke="#3d444d"/>

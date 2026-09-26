@@ -56,14 +56,15 @@ TOOLS = [
 ]
 SIMPLE_ICONS = "https://cdn.jsdelivr.net/npm/simple-icons@16.32.0"
 
-# GitHub Primer colours, so the images sit naturally on either theme.
+# GitHub's own greys for surfaces, so the images sit on either GitHub theme; the accents
+# follow the portfolio site (ishpuneetsingh.vercel.app): burgundy by day, rose and gold by night.
 THEMES = {
     "dark": dict(ink="#f0f6fc", muted="#9198a1", faint="#3d444d", canvas="#0d1117", panel="#151b23",
-                 border="#3d444d", byte="#79c0ff", space="#656c76", accent="#4493f8", red="#f85149",
-                 green="#3fb950", purple="#ab7df8", pink="#db61a2", amber="#d29922", tile="#242938"),
+                 border="#3d444d", byte="#e8a3b5", space="#656c76", accent="#e2899f", red="#f08b7c",
+                 green="#8cc9a1", purple="#c3a3e6", pink="#e59bc0", amber="#d8b77e", tile="#242938"),
     "light": dict(ink="#1f2328", muted="#59636e", faint="#d1d9e0", canvas="#ffffff", panel="#f6f8fa",
-                  border="#d1d9e0", byte="#0969da", space="#9198a1", accent="#0969da", red="#d1242f",
-                  green="#1a7f37", purple="#8250df", pink="#bf3989", amber="#9a6700", tile="#f4f2ed"),
+                  border="#d1d9e0", byte="#7a2140", space="#9198a1", accent="#6b1735", red="#d1242f",
+                  green="#1a7f37", purple="#8250df", pink="#bf3989", amber="#8a6a1f", tile="#f4f2ed"),
 }
 
 FONT_CACHE = Path(os.environ.get("FONT_CACHE", Path.home() / ".cache" / "ips610-fonts"))

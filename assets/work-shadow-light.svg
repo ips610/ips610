@@ -7,8 +7,8 @@
 .tt{font:600 17px Sans,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;fill:#1f2328}
 .cap{font:400 13.5px Sans,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;fill:#59636e}
 .s text{font:400 13px Mono,ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace}
-.d{fill:#9198a1;fill-opacity:.55}.o{fill:#59636e}.z{fill:#9198a1}.v{fill:#0969da}.hot{fill:#d1242f}
-.band{fill:#0969da;fill-opacity:.1}.edge{stroke:#0969da;stroke-opacity:.6}
+.d{fill:#9198a1;fill-opacity:.55}.o{fill:#59636e}.z{fill:#9198a1}.v{fill:#7a2140}.hot{fill:#d1242f}
+.band{fill:#6b1735;fill-opacity:.1}.edge{stroke:#6b1735;stroke-opacity:.6}
 .up{animation:up 17.6s linear infinite}@keyframes up{to{transform:translateY(-484px)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}.motion{display:none}}
 </style>
