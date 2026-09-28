@@ -343,7 +343,9 @@ def render_footer(theme):
 TILE_W, TILE_H, STAGE_H = 400, 272, 184
 
 
-def tile(theme, title, lines, stage):
+def tile(theme, title, lines, stage, gutter=0):
+    """`gutter` adds transparent space on the right: the README places tiles with no
+    space character between them, so no text (and no I-beam cursor) sits in the gap."""
     c = THEMES[theme]
     css, body, mono, sans = stage(c)
     style = fonts(title, "".join(lines) + sans, mono) + f"""
@@ -361,7 +363,7 @@ def tile(theme, title, lines, stage):
 <path d="M1 {STAGE_H + 1.5}H{TILE_W - 1}" stroke="{c["border"]}"/>
 <text class="tt" x="20" y="216">{esc(title)}</text>
 {caps}"""
-    return svg(TILE_W, TILE_H, f"{title}. {' '.join(lines)}", style, frame)
+    return svg(TILE_W + gutter, TILE_H, f"{title}. {' '.join(lines)}", style, frame)
 
 
 def shadow_stage(c):
@@ -619,7 +621,7 @@ def render_button(theme, label, icon):
     body = f"""<rect x=".5" y=".5" width="{width - 1}" height="{height - 1}" rx="6" fill="{b["bg"]}" stroke="{b["border"]}"/>
 <g transform="translate(12 6)">{_button_icon(icon, theme)}</g>
 <text class="lb" x="36" y="19">{esc(label)}</text>"""
-    return svg(width, height, label, style, body)
+    return svg(width + 8, height, label, style, body)  # 8px transparent gap to the next button
 
 
 # ----------------------------------------------------------------- tool wall
@@ -913,8 +915,9 @@ def main():
             (ASSETS / f"hero-{theme}.svg").write_text(render_hero(theme))
             (ASSETS / f"animals-chase-{theme}.svg").write_text(render_chase(theme))
             (ASSETS / f"animals-nap-{theme}.svg").write_text(render_footer(theme))
-            for key, title, lines, stage in WORK:
-                (ASSETS / f"work-{key}-{theme}.svg").write_text(tile(theme, title, lines, stage))
+            for n, (key, title, lines, stage) in enumerate(WORK):
+                gutter = 18 if n % 2 == 0 else 0  # left tile of each row carries the gap
+                (ASSETS / f"work-{key}-{theme}.svg").write_text(tile(theme, title, lines, stage, gutter))
             for key, label, icon in LINKS:
                 (ASSETS / f"link-{key}-{theme}.svg").write_text(render_button(theme, label, icon))
         update_readme("tools", write_tools())
