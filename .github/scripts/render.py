@@ -565,6 +565,7 @@ WORK = [
 # -------------------------------------------------------------- link buttons
 
 LINKS = [
+    ("website", "Website", "globe"),
     ("scholar", "Google Scholar", "si:googlescholar"),
     ("linkedin", "LinkedIn", "linkedin"),
     ("orcid", "ORCID", "si:orcid"),
@@ -590,6 +591,10 @@ def text_width(text, size, weight):
 def _button_icon(kind, theme):
     """A 16px icon at the origin."""
     c = THEMES[theme]
+    if kind == "globe":  # the portfolio, in the site's own accent
+        return (f'<g fill="none" stroke="{c["accent"]}" stroke-width="1.4">'
+                f'<circle cx="8" cy="8" r="6.6"/><ellipse cx="8" cy="8" rx="2.9" ry="6.6"/>'
+                f'<path d="M1.6 5.8h12.8M1.6 10.2h12.8"/></g>')
     if kind == "eye":
         return (f'<path d="M1 8s2.6-5 7-5 7 5 7 5-2.6 5-7 5-7-5-7-5z" fill="none" stroke="{c["muted"]}" '
                 f'stroke-width="1.4" stroke-linejoin="round"/><circle cx="8" cy="8" r="2.2" fill="{c["muted"]}"/>')
