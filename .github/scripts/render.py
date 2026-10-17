@@ -457,20 +457,26 @@ def beacon_stage(c):
 
 
 def medical_stage(c):
-    """A retina feeds concepts, which feed the diagnosis. A clinician's cursor rejects
+    """A chest X-ray feeds concepts, which feed the diagnosis. A clinician's cursor rejects
     one concept and the diagnosis updates, which is the point of a concept bottleneck."""
-    concepts = ["vessels", "optic disc", "exudates", "haemorrhages"]
+    concepts = ["cardiomegaly", "opacity", "consolidation", "effusion"]
     ys = [34, 72, 110, 148]
-    cx, cy, r = 70, 92, 48
-    fundus = f"""<radialGradient id="fundus" cx=".42" cy=".42" r=".65"><stop offset="0" stop-color="#f7a35c"/><stop offset=".65" stop-color="#d9591f"/><stop offset="1" stop-color="#8f2a0e"/></radialGradient>
-<clipPath id="eye"><circle cx="{cx}" cy="{cy}" r="{r}"/></clipPath>"""
-    vessels = ["M88 86C72 72 56 62 26 60", "M88 86C72 98 58 112 30 124", "M88 86C96 66 92 54 82 42",
-               "M88 86C98 102 96 118 86 136", "M88 86C74 86 58 90 22 92", "M88 86C104 80 112 72 118 70"]
-    eye = f"""<g clip-path="url(#eye)"><circle cx="{cx}" cy="{cy}" r="{r}" fill="url(#fundus)"/>
-{"".join(f'<path d="{d}" fill="none" stroke="#6e1a07" stroke-width="{2.2 - i * 0.2:.1f}" stroke-linecap="round"/>' for i, d in enumerate(vessels))}
-<circle cx="88" cy="86" r="10" fill="#fde2a8"/>
-<circle cx="52" cy="108" r="3.5" fill="#6e1205"/><circle cx="60" cy="74" r="1.8" fill="#ffe08a"/><circle cx="66" cy="70" r="1.5" fill="#ffe08a"/><circle cx="46" cy="84" r="1.6" fill="#ffe08a"/></g>
-<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{c["border"]}"/>"""
+    cy = 92
+    # The film stays dark in both themes, like a real X-ray. It spans x 22-118, y 40-144.
+    fundus = f"""<radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f2f4f6" stop-opacity=".75"/><stop offset="1" stop-color="#f2f4f6" stop-opacity="0"/></radialGradient>
+<clipPath id="eye"><rect x="22" y="40" width="96" height="104" rx="8"/></clipPath>"""
+    ribs = "".join(f'<path d="M68 {y}C58 {y - 6} 46 {y - 2} 40 {y + 8}"/><path d="M72 {y}C82 {y - 6} 94 {y - 2} 100 {y + 8}"/>'
+                   for y in (64, 74, 84, 94, 104, 114))
+    eye = f"""<g clip-path="url(#eye)"><rect x="22" y="40" width="96" height="104" fill="#0b0d10"/>
+<path d="M30 144C28 110 30 80 36 62C40 52 50 48 60 46V40H80V46C90 48 100 52 104 62C110 80 112 110 110 144Z" fill="#5b6168"/>
+<path d="M66 56C54 56 42 64 40 82C38 104 40 124 44 134C52 130 60 128 66 128Z" fill="#1b1e22"/>
+<path d="M74 56C86 56 98 64 100 82C102 104 100 124 96 134C88 130 80 128 74 128Z" fill="#1b1e22"/>
+<rect x="67" y="40" width="6" height="104" fill="#c9ced3" opacity=".35"/>
+<path d="M64 92C60 104 58 118 64 128C74 132 90 130 94 122C96 110 86 96 74 92Z" fill="#8a9097" opacity=".85"/>
+<g fill="none" stroke="#d5d9de" stroke-width="1.3" opacity=".5">{ribs}</g>
+<path d="M58 52C50 50 42 52 36 58M82 52C90 50 98 52 104 58" fill="none" stroke="#e1e4e8" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+<circle class="spot" cx="50" cy="112" r="11" fill="url(#glow)"/></g>
+<rect x="22" y="40" width="96" height="104" rx="8" fill="none" stroke="{c["border"]}"/>"""
 
     edges = []
     for y in ys:
@@ -503,6 +509,7 @@ def medical_stage(c):
 .p{{fill:{c["accent"]};fill-opacity:.16;stroke:{c["accent"]}}}
 {"".join(f".p{i}{{animation:p{i} 9s infinite}}.pl{i}{{animation:pl{i} 9s infinite}}" for i in range(4))}
 {"".join(keyframes)}
+.spot{{animation:spot 3s ease-in-out infinite}}@keyframes spot{{50%{{opacity:.45}}}}
 .strike{{opacity:0;animation:strike 9s infinite}}@keyframes strike{{0%,56%{{opacity:0}}57%,92%{{opacity:1}}100%{{opacity:0}}}}
 .meter{{transform-box:fill-box;transform-origin:0 50%;transform:scaleX(.85);animation:meter 9s ease-in-out infinite}}
 @keyframes meter{{0%,12%{{transform:scaleX(0)}}36%,55%{{transform:scaleX(.85)}}62%,92%{{transform:scaleX(.42)}}100%{{transform:scaleX(0)}}}}
