@@ -462,25 +462,53 @@ def medical_stage(c):
     concepts = ["cardiomegaly", "opacity", "consolidation", "effusion"]
     ys = [34, 72, 110, 148]
     cy = 92
-    # The film stays dark in both themes, like a real X-ray. It spans x 22-118, y 40-144.
-    fundus = f"""<radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f2f4f6" stop-opacity=".75"/><stop offset="1" stop-color="#f2f4f6" stop-opacity="0"/></radialGradient>
-<clipPath id="eye"><rect x="22" y="40" width="96" height="104" rx="8"/></clipPath>"""
-    ribs = "".join(f'<path d="M68 {y}C58 {y - 6} 46 {y - 2} 40 {y + 8}"/><path d="M72 {y}C82 {y - 6} 94 {y - 2} 100 {y + 8}"/>'
-                   for y in (64, 74, 84, 94, 104, 114))
-    eye = f"""<g clip-path="url(#eye)"><rect x="22" y="40" width="96" height="104" fill="#0b0d10"/>
-<path d="M30 144C28 110 30 80 36 62C40 52 50 48 60 46V40H80V46C90 48 100 52 104 62C110 80 112 110 110 144Z" fill="#5b6168"/>
-<path d="M66 56C54 56 42 64 40 82C38 104 40 124 44 134C52 130 60 128 66 128Z" fill="#1b1e22"/>
-<path d="M74 56C86 56 98 64 100 82C102 104 100 124 96 134C88 130 80 128 74 128Z" fill="#1b1e22"/>
-<rect x="67" y="40" width="6" height="104" fill="#c9ced3" opacity=".35"/>
-<path d="M64 92C60 104 58 118 64 128C74 132 90 130 94 122C96 110 86 96 74 92Z" fill="#8a9097" opacity=".85"/>
-<g fill="none" stroke="#d5d9de" stroke-width="1.3" opacity=".5">{ribs}</g>
-<path d="M58 52C50 50 42 52 36 58M82 52C90 50 98 52 104 58" fill="none" stroke="#e1e4e8" stroke-width="2" stroke-linecap="round" opacity=".8"/>
-<circle class="spot" cx="50" cy="112" r="11" fill="url(#glow)"/></g>
-<rect x="22" y="40" width="96" height="104" rx="8" fill="none" stroke="{c["border"]}"/>"""
+    # A PA chest film, drawn in its own 100 x 110 box and placed at x 20-120, y 37-147.
+    # It stays dark in both themes, like a real X-ray. Patient's right is the viewer's left.
+    blur = "".join(f'<filter id="xb{i}" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="{d}"/></filter>'
+                   for i, d in enumerate((0.5, 1.2, 2.4)))
+    lung_r = "M38 13C27 13 19 21 15 35C11 51 9 73 10 92C18 85 30 80 43 82C44 66 43 40 42 19C42 15 40 13 38 13Z"
+    lung_l = "M62 13C73 13 81 21 85 35C89 51 91 75 90 95C84 91 76 88 70 89C76 80 72 62 60 52C59 40 58 26 58 19C58 15 60 13 62 13Z"
+    fundus = f"""{blur}
+<radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#e8ebee" stop-opacity=".8"/><stop offset=".6" stop-color="#e8ebee" stop-opacity=".35"/><stop offset="1" stop-color="#e8ebee" stop-opacity="0"/></radialGradient>
+<radialGradient id="xvig" cx=".5" cy=".45" r=".75"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></radialGradient>
+<linearGradient id="xheart"><stop offset="0" stop-color="#aeb3b8"/><stop offset=".4" stop-color="#c2c6ca"/><stop offset="1" stop-color="#b1b6bb"/></linearGradient>
+<radialGradient id="xlung" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#2b2f33"/><stop offset="1" stop-color="#121417"/></radialGradient>
+<filter id="xgrain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="7"/><feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .14 0"/></filter>
+<clipPath id="eye"><rect width="100" height="110" rx="7"/></clipPath>
+<clipPath id="xlungs"><path d="{lung_r}"/><path d="{lung_l}"/></clipPath>"""
+    ribs = "".join(f'<path d="M47 {y}C40 {y - 4} 28 {y - 4} 20 {y + 2}C15 {y + 6} 12 {y + 12} 12 {y + 17}"/>'
+                   f'<path d="M53 {y}C60 {y - 4} 72 {y - 4} 80 {y + 2}C85 {y + 6} 88 {y + 12} 88 {y + 17}"/>'
+                   for y in (12, 19, 26, 34, 42, 51, 60, 69))
+    front = "".join(f'<path d="M13 {y}C22 {y + 3} 30 {y + 8} 38 {y + 14}"/><path d="M87 {y}C78 {y + 3} 70 {y + 8} 62 {y + 14}"/>'
+                    for y in (24, 34, 45, 56))
+    markings = ("M41 46C35 40 29 34 22 27M41 46C33 46 25 48 15 50M41 48C35 56 29 64 22 75M39 44C35 34 33 26 31 17"
+                "M41 50C37 62 35 70 31 80M30 37C26 38 22 41 19 44M28 60C24 60 19 63 15 66"
+                "M60 44C66 38 72 32 79 25M60 44C68 44 77 46 86 49M60 42C64 32 66 24 68 15M72 33C76 36 80 40 83 42")
+    vert = "".join(f'<rect x="46" y="{y}" width="8" height="5.6" rx="1.6"/>' for y in range(4, 106, 7))
+    eye = f"""<g transform="translate(20 37)"><g clip-path="url(#eye)">
+<rect width="100" height="110" fill="#050607"/>
+<path d="M2 110C0 80 1 42 7 24C11 15 21 10 33 9L40 0H60L67 9C79 10 89 15 93 24C99 42 100 80 98 110Z" fill="#767b80" filter="url(#xb2)"/>
+<circle cx="3" cy="17" r="10" fill="#9a9fa4" filter="url(#xb2)"/><circle cx="97" cy="17" r="10" fill="#9a9fa4" filter="url(#xb2)"/>
+<path d="M6 110C8 98 11 92 14 91C24 82 36 79 46 83C56 86 72 86 92 97L96 110Z" fill="#92979c" filter="url(#xb2)"/>
+<g fill="url(#xlung)" filter="url(#xb1)"><path d="{lung_r}"/><path d="{lung_l}"/></g>
+<g clip-path="url(#xlungs)"><path d="{markings}" fill="none" stroke="#9aa0a5" stroke-width=".9" stroke-linecap="round" opacity=".38" filter="url(#xb0)"/></g>
+<path d="M44 0H56L57 30C60 27 64 28 64 33C64 37 60 39 58 40L59 48H42L44 30Z" fill="#a4a9ae" filter="url(#xb2)"/>
+<path d="M43 46C52 46 58 47 61 50C71 57 78 70 76 85C67 92 51 92 41 87C38 76 40 60 43 46Z" fill="url(#xheart)" filter="url(#xb2)"/>
+<g fill="#d9dde0" opacity=".16">{vert}</g>
+<path d="M50 2V33M50 33C47 37 44 40 39 44M50 33C53 37 56 40 61 43" fill="none" stroke="#2a2d31" stroke-width="3" stroke-linecap="round" opacity=".45" filter="url(#xb1)"/>
+<g fill="none" stroke="#dfe2e5" stroke-width="2.4" stroke-linecap="round" opacity=".2" filter="url(#xb0)">{ribs}</g>
+<g fill="none" stroke="#dfe2e5" stroke-width="1.6" stroke-linecap="round" opacity=".12">{front}</g>
+<path d="M45 13C40 11 34 12 28 10C22 8 16 7 10 9M55 13C60 11 66 12 72 10C78 8 84 7 90 9" fill="none" stroke="#e6e9eb" stroke-width="2.4" stroke-linecap="round" opacity=".55" filter="url(#xb0)"/>
+<ellipse cx="74" cy="99" rx="6" ry="3.4" fill="#1a1c1f" opacity=".8" filter="url(#xb1)"/>
+<ellipse class="spot" cx="25" cy="71" rx="11" ry="9" fill="url(#glow)" filter="url(#xb1)"/>
+<rect width="100" height="110" fill="url(#xvig)"/>
+<rect width="100" height="110" filter="url(#xgrain)"/>
+<text x="6" y="10" style="font:600 7px Sans,sans-serif;fill:#eef0f2">R</text></g>
+<rect width="100" height="110" rx="7" fill="none" stroke="{c["border"]}"/></g>"""
 
     edges = []
     for y in ys:
-        for d in (f"M118 {cy}C138 {cy} 138 {y} 158 {y}", f"M262 {y}C280 {y} 280 {cy} 298 {cy}"):
+        for d in (f"M120 {cy}C139 {cy} 139 {y} 158 {y}", f"M262 {y}C280 {y} 280 {cy} 298 {cy}"):
             edges.append(f'<path d="{d}" class="wire"/><path d="{d}" class="flow"/>')
     pills, keyframes = [], []
     for i, (name, y) in enumerate(zip(concepts, ys)):
@@ -515,7 +543,7 @@ def medical_stage(c):
 @keyframes meter{{0%,12%{{transform:scaleX(0)}}36%,55%{{transform:scaleX(.85)}}62%,92%{{transform:scaleX(.42)}}100%{{transform:scaleX(0)}}}}
 .ptr{{opacity:0;animation:ptr 9s ease-in-out infinite}}
 @keyframes ptr{{0%,40%{{opacity:0;transform:translate(372px,196px)}}44%{{opacity:1;transform:translate(360px,182px)}}53%{{transform:translate(246px,152px)}}55%{{transform:translate(246px,152px) scale(.8)}}57%{{transform:translate(246px,152px) scale(1)}}66%{{opacity:1;transform:translate(258px,160px)}}72%,100%{{opacity:0;transform:translate(258px,160px)}}}}"""
-    return css, body, "", "".join(concepts) + "diagnosis"
+    return css, body, "", "".join(concepts) + "diagnosisR"
 
 
 def thapar_stage(c):
