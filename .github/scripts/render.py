@@ -57,7 +57,7 @@ TOOLS = [
 SIMPLE_ICONS = "https://cdn.jsdelivr.net/npm/simple-icons@16.32.0"
 
 # GitHub's own greys for surfaces, so the images sit on either GitHub theme; the accents
-# follow the portfolio site (ishpuneetsingh.vercel.app): burgundy by day, rose and gold by night.
+# follow the portfolio site (ishpuneetsingh.com): burgundy by day, rose and gold by night.
 THEMES = {
     "dark": dict(ink="#f0f6fc", muted="#9198a1", faint="#3d444d", canvas="#0d1117", panel="#151b23",
                  border="#3d444d", byte="#e8a3b5", space="#656c76", accent="#e2899f", red="#f08b7c",
