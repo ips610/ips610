@@ -37,7 +37,7 @@ HERO_LINES = ["binary analysis", "user biometrics", "medical imaging", "network 
 # Rows of the tool wall: (icon id, name shown on hover). Plain ids are
 # skillicons.dev; "si:" ids are Simple Icons.
 TOOLS = [
-    ("Languages", [("py", "Python"), ("c", "C"), ("cpp", "C++"), ("java", "Java"), ("ts", "TypeScript"),
+    ("Languages", [("py", "Python"), ("c", "C"), ("cpp", "C++"), ("rust", "Rust"), ("java", "Java"), ("ts", "TypeScript"),
                    ("js", "JavaScript"), ("dart", "Dart"), ("php", "PHP"), ("r", "R"), ("matlab", "MATLAB"),
                    ("solidity", "Solidity"), ("bash", "Bash"), ("html", "HTML"), ("css", "CSS")]),
     ("ML and data", [("pytorch", "PyTorch"), ("tensorflow", "TensorFlow"), ("sklearn", "scikit-learn"),
